@@ -1,0 +1,59 @@
+<p-dialog [(visible)]="display">
+    <ng-template pTemplate="header">
+        <h4>
+            Add new Employee 
+        </h4>
+    </ng-template>
+    <ng-container>
+        <app-add-user></app-add-user>
+    </ng-container>
+    <ng-template pTemplate="footer">
+        <button id="cancel" type="reset" pButton icon="pi pi-times" label="Close" (click)=" closeDialog()"></button>
+        <button type="submit" pButton icon="pi pi-check" label="Save" (click)="onSubmit()"></button>
+    </ng-template>
+    
+</p-dialog>
+
+<div class="container mt-4">
+    <div class="row">
+        
+    <div class="col-md-2">
+        <button pButton type="button" class="p-button-info btn" (click)="showDialog()"><i class="pi pi-user-plus" style="margin-right: 5px; font-size: 14px;"></i>  Add Employee</button>
+    </div>
+    
+</div>
+<div class="row mt-4">
+    <p-table [value]="employees" [paginator]="true" [rows]="5"   responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                
+                <th>Employee ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Date of birthday</th>
+                <th></th>
+                <th></th>
+               
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-employee>
+            <tr>
+                <td>{{employee.id}}</td>
+                <td>{{employee.first_name}}</td>
+                <td>{{employee.last_name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.dateOfBirth}}</td>
+                <td>
+                    <button pButton type="button" class="p-button-info"  (click)="showDialog()"><i class="pi pi-user-edit" style="margin-right: 5px; font-size: 14px;"></i> Edit</button>
+                </td>
+                <td> 
+                    <button pButton type="button" class="p-button-danger" (click)="deleteEmployee(employee)" ><i class="pi pi-trash" style="margin-right: 5px; font-size: 14px;"></i> Delete</button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+</div>
+

@@ -1,0 +1,14 @@
+.logout {
+    background-color: red;
+    border: none;
+
+    &:hover {
+        background-color: black;
+    }
+}
+
+.navbar-brand {
+    &:hover {
+        color: red;
+    }
+}

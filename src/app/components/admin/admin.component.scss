@@ -1,0 +1,25 @@
+.container {
+   
+    background-color: rgb(59, 37, 37);
+
+    .row {
+        height: auto;
+        min-height: 100vh;
+        position: fixed; 
+
+        span {
+            padding-left: 2rem;
+            font-size: 20px;
+            height: 50px;
+            margin-bottom: 2px;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            color: var(--color-white);
+
+            p:hover {
+                color: red;
+            }
+        }
+    }
+}
