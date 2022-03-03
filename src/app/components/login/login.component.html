@@ -1,4 +1,4 @@
-<div class="p-grid p-align-center" style="height: 100vh">
+<!-- <div class="p-grid p-align-center" style="height: 100vh">
   <div class="p-col-6" style="background-color: #f1f1f2; height: 100%;">
   <div>
   <div class="container text-center"> 
@@ -14,8 +14,35 @@
   </div> 
   </div>
   </div>
+</div> -->
+
+<body>
+  <div class="center">
+  <input type="checkbox" id="show">
+  <label for="show" class="show-btn">CLICK FOR LOGIN</label>
+  <div class="container">
+    <label for="show" class="close-btn fas fa-times" title="close"></label>
+    <div class="text">
+Login</div>
+<form action="#">
+      <div class="data">
+        <label>Username</label>
+        <input type="text" required [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+      </div>
+<div class="data">
+        <label>Password</label>
+        <input type="password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+      </div>
+
+<div class="btn">
+        <div class="inner">
+</div>
+<button type="submit" (click)="login()">login</button>
+      </div>
+</form>
+</div>
 </div>
 
 
-
+</body>
 
