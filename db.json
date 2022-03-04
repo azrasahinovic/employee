@@ -2,50 +2,85 @@
   "employees": [
     {
       "id": 1,
-      "first_name": "Sebastian",
-      "last_name": "Eschweiler",
-      "email": "sebastian@codingthesmartway.com",
-      "dateOfBirth": "12 January 1995"
+      "first_name": "Isakk",
+      "last_name": "Muhamedagić",
+      "email": "i.muhamedagic@tntsoft.ba",
+      "dateOfBirth": "1990-12-27T23:00:00.000Z",
+      "sick_leave": true,
+      "startOfWork": "7:30",
+      "endOfWork": "15:00",
+      "break1": "11:00",
+      "break2": "11:30"
     },
     {
       "id": 2,
-      "first_name": "Steve",
-      "last_name": "Palmer",
-      "email": "steve@codingthesmartway.com",
-      "dateOfBirth": "3 August 2000"
+      "first_name": "Fatima",
+      "last_name": "Hadžalić",
+      "email": "f.hadzalic@tntsoft.ba",
+      "dateOfBirth": "3/8/1990"
     },
     {
       "id": 3,
-      "first_name": "Ann",
-      "last_name": "Smith",
-      "email": "ann@codingthesmartway.com",
-      "dateOfBirth": "19 July 1999"
+      "first_name": "Hamza",
+      "last_name": "Handanagić",
+      "email": "h.handanagic@tntsoft.ba",
+      "dateOfBirth": "7/19/1999"
     },
     {
       "id": 4,
-      "first_name": "Seba",
-      "last_name": "Eschweiler",
-      "email": "seba@codingthesmartway.com",
-      "dateOfBirth": "30 September 1979"
+      "first_name": "Suljo",
+      "last_name": "Mujkić",
+      "email": "s.mujkic@tntsoft.ba",
+      "dateOfBirth": "9/12/1979"
     },
     {
       "id": 5,
-      "first_name": "Steven",
-      "last_name": "Palmer",
-      "email": "steven@codingthesmartway.com",
-      "dateOfBirth": "12 August 1985"
+      "first_name": "Ibrahim",
+      "last_name": "Suljanović",
+      "email": "i.suljanovic@tntsoft.ba",
+      "dateOfBirth": "12/8/1985"
+    },
+    {
+      "id": 6,
+      "first_name": "Aida",
+      "last_name": "Šertović-Komić",
+      "email": "a.sertovic@tntsoft.ba",
+      "dateOfBirth": "12/5/1997"
     },
     {
       "id": 7,
-      "first_name": "Seba",
-      "last_name": "Eschweiler",
-      "email": "seba@codingthesmartway.com"
+      "first_name": "Eldin",
+      "last_name": "Egrlić",
+      "email": "e.egrlic@tntsoft.ba",
+      "dateOfBirth": "12/4/1990"
     },
     {
       "id": 8,
-      "first_name": "Steven",
-      "last_name": "Palmer",
-      "email": "steven@codingthesmartway.com"
+      "first_name": "Tarik",
+      "last_name": "Hadžić",
+      "email": "t.hadzic@tntsoft.ba",
+      "dateOfBirth": "12/9/1996"
+    },
+    {
+      "id": 9,
+      "first_name": "Mirza",
+      "last_name": "Murić",
+      "email": "m.muric@tntsoft.ba",
+      "dateOfBirth": "12/2/1996"
+    },
+    {
+      "id": 10,
+      "first_name": "Tarik",
+      "last_name": "Topić",
+      "email": "t.topic@tntsoft.ba",
+      "dateOfBirth": "1/12/1990"
+    },
+    {
+      "id": 11,
+      "first_name": "Alen",
+      "last_name": "Henda",
+      "email": "a.henda@tntsoft.ba",
+      "dateOfBirth": "4/3/1985"
     }
   ]
 }

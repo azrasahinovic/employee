@@ -11,15 +11,17 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class UserManagementhComponent implements OnInit {
   employees: Employee[] = [];
+  
   first_name!: string;
   last_name!: string;
   email!: string;
   dateOfBirth!: string;
   @Input() employee!: Employee;
-
-  @Output() onAddEmployee: EventEmitter<any> = new EventEmitter();
+  @Input() selectedOption: any;
 
   display: boolean = false;
+  open: boolean = false;
+  selected!:  Employee;
 
   constructor(private employeeService: EmployeeService,
    ) { }
@@ -33,18 +35,31 @@ export class UserManagementhComponent implements OnInit {
     this.display = true;
   }
 
+  showEditDialog(employee: any) {
+    this.open = true;
+    this.selected = employee;
+  }
+
   closeDialog() {
     this.display = false;
   }
 
-  onSubmit() {
-    const employee = {
-      first_name: this.first_name,
-      last_name: this.last_name,
-      email: this.email,
-      dateOfBirth: this.dateOfBirth
-    }
-    this.onAddEmployee.emit(employee);
+  addEmployeer(employee: Employee) {
+    this.employeeService.addEmployee(employee).subscribe(employee => {
+      this.employees.push(employee);
+      console.log(employee)
+    })
+    this.display = false;
+  }
+
+  editEmployee(employee: Employee) {
+    this.employeeService.editEmployee(employee).subscribe(
+      employee => {
+        this.employee = employee;
+        console.log(employee)
+      } 
+    )
+    this.open = false;
   }
 
   deleteEmployee(employee: Employee) {

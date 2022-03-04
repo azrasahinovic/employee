@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-admin',
@@ -8,16 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   display: boolean = false;
 
+  @Output() select: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onPress() {
-    this.display = true;
-    /*if you want the component to show and hide on click pressed, use 
-    use this line
-    this.display = !this.display;*/
+  selected() {
+    this.select.emit();
+    console.log('hi')
   }
 
+ 
 }

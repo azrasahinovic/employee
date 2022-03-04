@@ -4,5 +4,10 @@ export interface Employee {
     last_name: string;
     email: string;
     dateOfBirth: string;
-    status: string;
+    sick_leave: boolean;
+    vacation: boolean;
+    startOfWork: number;
+    endOfWork: number;
+    break1: number;
+    break2: number;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Employee } from 'src/app/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -10,6 +10,8 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class ContentComponent implements OnInit {
   employees: Employee[] = [];
   employee: any;
+  selectedOption: any;
+ 
   
 
   constructor(private employeeService: EmployeeService) { }
@@ -17,11 +19,11 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addEmployeer(employee: Employee) {
-    this.employeeService.addEmployee(employee).subscribe(employee => {
-      this.employees.push(employee);
-      console.log(employee)
-    })
-  }
+  // addEmployeer(employee: Employee) {
+  //   this.employeeService.addEmployee(employee).subscribe(employee => {
+  //     this.employees.push(employee);
+  //     console.log(employee)
+  //   })
+  // }
 
 }

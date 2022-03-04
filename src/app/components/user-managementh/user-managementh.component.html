@@ -5,12 +5,19 @@
         </h4>
     </ng-template>
     <ng-container>
-        <app-add-user></app-add-user>
+        <app-add-user (onAddEmployee)="addEmployeer($event)"></app-add-user>
     </ng-container>
-    <ng-template pTemplate="footer">
-        <button id="cancel" type="reset" pButton icon="pi pi-times" label="Close" (click)=" closeDialog()"></button>
-        <button type="submit" pButton icon="pi pi-check" label="Save" (click)="onSubmit()"></button>
+</p-dialog>
+
+<p-dialog [(visible)]="open">
+    <ng-template pTemplate="header">
+        <h4>
+            Edit Employee 
+        </h4>
     </ng-template>
+    <ng-container>
+        <app-edit-user (edit)="editEmployee($event)" [employee]="selected"></app-edit-user>
+    </ng-container>
     
 </p-dialog>
 
@@ -43,9 +50,9 @@
                 <td>{{employee.first_name}}</td>
                 <td>{{employee.last_name}}</td>
                 <td>{{employee.email}}</td>
-                <td>{{employee.dateOfBirth}}</td>
+                <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}} </td>
                 <td>
-                    <button pButton type="button" class="p-button-info"  (click)="showDialog()"><i class="pi pi-user-edit" style="margin-right: 5px; font-size: 14px;"></i> Edit</button>
+                    <button pButton type="button" class="p-button-info"  (click)="showEditDialog(employee)"><i class="pi pi-user-edit" style="margin-right: 5px; font-size: 14px;"></i> Edit</button>
                 </td>
                 <td> 
                     <button pButton type="button" class="p-button-danger" (click)="deleteEmployee(employee)" ><i class="pi pi-trash" style="margin-right: 5px; font-size: 14px;"></i> Delete</button>

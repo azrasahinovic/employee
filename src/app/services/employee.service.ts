@@ -30,5 +30,11 @@ export class EmployeeService {
     return this.http.delete<Employee>(url);
   }
 
+  editEmployee(employee: Employee): Observable<Employee> {
+    const url = `${this.apiUrl}/${employee.id}`;
+    return this.http.put<Employee>(url, employee, httpOptions);
+  }
+  
+
   
 }

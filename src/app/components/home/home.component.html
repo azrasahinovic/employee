@@ -3,15 +3,17 @@
 </div>
 
     <div class="row">
-    <div class=" col-md-2 mt-4">
-        <app-sidemenu></app-sidemenu>
+    <div class="sidmenu col-md-2 mt-4">
+        <app-admin *ngIf="role === 'admin'" (select)="selOption($event)" ></app-admin>
+        <app-user *ngIf="role === 'user'"></app-user>
     </div>
     <div class=" col mt-4">
         <app-content></app-content>
+        
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-5">
     <app-footer></app-footer>
 </div>
 

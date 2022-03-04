@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  role: string = 'user';
+  selectedOption: any;
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem('userRole') || '';
   }
 
+  selOption(event: any) {
+    this.selectedOption = event; 
+    console.log('welcome') 
+  }
+
+ 
 }

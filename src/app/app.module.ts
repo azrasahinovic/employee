@@ -28,6 +28,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { CalendarModule } from 'primeng/calendar';
+import {CheckboxModule} from 'primeng/checkbox';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 
@@ -47,6 +49,7 @@ import { CalendarModule } from 'primeng/calendar';
     AddComponent,
     OverviewComponent,
     AddUserComponent,
+    EditUserComponent,
     
   ],
   imports: [
@@ -63,7 +66,8 @@ import { CalendarModule } from 'primeng/calendar';
    DialogModule,
    ConfirmDialogModule,
    BrowserAnimationsModule,
-   CalendarModule
+   CalendarModule,
+   CheckboxModule
   
   ],
   providers: [],
