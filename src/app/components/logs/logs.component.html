@@ -2,7 +2,7 @@
    
           <div class="row">
         <div class="col-md-2">
-            <p-calendar view="month" dateFormat="mm/yy" placeholder="Select month"></p-calendar>
+            <p-calendar [(ngModel)]="selectedMonth" view="month" dateFormat="mm/yy" placeholder="Select month" (onSelect)="ShowDays()" ></p-calendar>
             
         </div>
         <div class="col-md-4">
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="row mt-4">
-         <p-table [value]="employees"  [paginator]="true" [rows]="5"   responsiveLayout="scroll">
+         <p-table [value]="employees" dataKey="name" [paginator]="true" [rows]="5"   responsiveLayout="scroll" >
         <ng-template pTemplate="header">
             <tr>
                 <th></th>
@@ -29,7 +29,7 @@
         <ng-template pTemplate="body" let-employee let-expanded="expanded">
             <tr>
                     <td>
-                        <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                        <button type="button" pButton pRipple [pRowToggler]="employee" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                     </td>
                 <td>{{employee.first_name}} {{employee.last_name}}</td>
                 <td>
@@ -67,7 +67,38 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="rowexpansion" let-employee>
-        
+            <tr>
+                <td colspan="7">
+                    <div class="p-p-3">
+                        <p-table [value]="employee.reports" dataKey="id">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th >Date </th>
+                                    <th >Sick leave</th>
+                                    <th >Vacation </th>
+                                    <th>Start of work </th>
+                                    <th>End of work</th>
+                                    <th >Break start</th>
+                                    <th>Break end</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-report>
+                                <tr>
+                                    <td>{{report.date}}</td>
+                                    <td >{{report.sick_leave}}</td>
+                                    <td>{{report.vacation}}</td>
+                                    <td>{{report.startOfWork}}</td>
+                                    <td>{{report.endOfWork}}</td>
+                                    <td>{{report.break1}}</td>
+                                    <td>{{report.break2}}</td>
+                                  
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </td>
+            </tr>
+
         </ng-template>
     </p-table>
     </div>

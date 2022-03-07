@@ -30,6 +30,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { CalendarModule } from 'primeng/calendar';
 import {CheckboxModule} from 'primeng/checkbox';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import {AccordionModule} from 'primeng/accordion';
 
 
 
@@ -69,6 +70,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
    BrowserAnimationsModule,
    CalendarModule,
    CheckboxModule,
+   AccordionModule
    
   
   

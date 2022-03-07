@@ -3,11 +3,11 @@
 </div>
 
     <div class="row">
-    <div class="sidmenu col-md-2 mt-4">
+    <div class="col-md-2">
         <app-admin *ngIf="role === 'admin'"></app-admin>
         <app-user *ngIf="role === 'user'"></app-user>
     </div>
-    <div class=" col mt-4">
+    <div class=" col">
         <!-- <app-content></app-content> -->
         <router-outlet></router-outlet>
         
