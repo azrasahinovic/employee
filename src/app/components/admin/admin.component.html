@@ -1,13 +1,17 @@
 <div class="container">
-   
-    <span> 
-        <p (click)="selected()"><i class="pi pi-list" style="margin-right: 5px; font-size: 16px;"></i>
-            USER MANAGEMENT
-        </p>
-        <p><i class="pi pi-envelope" style="margin-right: 5px; font-size: 16px;"></i>
-           LOGS
-        </p>
-    </span>
+    <div>
+       <span routerLink="/home/um" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="pi pi-list" style="margin-right: 5px; font-size: 16px;"></i>
+        USER MANAGEMENT
+    </span> 
+    </div>
+    
+    <div class="mt-3">
+       <span routerLink="/home/logs" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="pi pi-envelope" style="margin-right: 5px; font-size: 16px;"></i>
+        LOGS
+    </span> 
+    </div>
 </div>
 
 

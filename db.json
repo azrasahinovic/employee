@@ -2,10 +2,10 @@
   "employees": [
     {
       "id": 1,
-      "first_name": "Isakk",
+      "first_name": "Isak",
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
-      "dateOfBirth": "1990-12-27T23:00:00.000Z",
+      "dateOfBirth": "2022-02-28T23:00:00.000Z",
       "sick_leave": true,
       "startOfWork": "7:30",
       "endOfWork": "15:00",
@@ -17,7 +17,7 @@
       "first_name": "Fatima",
       "last_name": "Hadžalić",
       "email": "f.hadzalic@tntsoft.ba",
-      "dateOfBirth": "3/8/1990"
+      "dateOfBirth": "2022-03-29T22:00:00.000Z"
     },
     {
       "id": 3,
@@ -80,7 +80,7 @@
       "first_name": "Alen",
       "last_name": "Henda",
       "email": "a.henda@tntsoft.ba",
-      "dateOfBirth": "4/3/1985"
+      "dateOfBirth": "1985-04-24T22:00:00.000Z"
     }
   ]
 }

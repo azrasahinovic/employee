@@ -2,7 +2,8 @@
    
           <div class="row">
         <div class="col-md-2">
-            <p-calendar placeholder="Select date"></p-calendar>
+            <p-calendar view="month" dateFormat="mm/yy" placeholder="Select month"></p-calendar>
+            
         </div>
         <div class="col-md-4">
             <div class="p-field-checkbox mt-2">
@@ -15,7 +16,7 @@
          <p-table [value]="employees"  [paginator]="true" [rows]="5"   responsiveLayout="scroll">
         <ng-template pTemplate="header">
             <tr>
-                
+                <th></th>
                 <th>Employee name</th>
                 <th>Sick leave</th>
                 <th>Vacation</th>
@@ -23,13 +24,13 @@
                 <th>End of work</th>
                 <th>Break start</th>
                 <th>Break end</th>
-               
-               
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-employee>
+        <ng-template pTemplate="body" let-employee let-expanded="expanded">
             <tr>
-                
+                    <td>
+                        <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                    </td>
                 <td>{{employee.first_name}} {{employee.last_name}}</td>
                 <td>
                     <div class="p-field-checkbox">
@@ -64,6 +65,9 @@
                     </p-calendar>
                 </td>
             </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-employee>
+        
         </ng-template>
     </p-table>
     </div>

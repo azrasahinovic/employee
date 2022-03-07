@@ -4,11 +4,12 @@
 
     <div class="row">
     <div class="sidmenu col-md-2 mt-4">
-        <app-admin *ngIf="role === 'admin'" (select)="selOption($event)" ></app-admin>
+        <app-admin *ngIf="role === 'admin'"></app-admin>
         <app-user *ngIf="role === 'user'"></app-user>
     </div>
     <div class=" col mt-4">
-        <app-content></app-content>
+        <!-- <app-content></app-content> -->
+        <router-outlet></router-outlet>
         
     </div>
 </div>

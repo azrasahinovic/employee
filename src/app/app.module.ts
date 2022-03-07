@@ -33,6 +33,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,9 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
    ConfirmDialogModule,
    BrowserAnimationsModule,
    CalendarModule,
-   CheckboxModule
+   CheckboxModule,
+   
+  
   
   ],
   providers: [],

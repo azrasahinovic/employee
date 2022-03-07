@@ -6,7 +6,7 @@
     <p class="text-start mt-2">Email</p>
     <input type="text" pInputText placeholder="Enter email" name="email" [(ngModel)]="employee.email" [ngModelOptions]="{standalone: true}"/>
     <p class="text-start mt-2">Date of Birthday</p>
-    <p-calendar [(ngModel)]="employee.dateOfBirth"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1920:2030" inputId="navigators"></p-calendar>
+    <p-calendar [(ngModel)]="employee.dateOfBirth"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" inputId="navigators"></p-calendar>
  
  <div class="mt-4 text-end">
          <button class="p-button-success"  type="submit" pButton icon="pi pi-check" label="Apply" (click)="editEmployee(employee)" ></button>

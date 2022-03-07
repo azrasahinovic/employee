@@ -6,8 +6,8 @@ export interface Employee {
     dateOfBirth: string;
     sick_leave: boolean;
     vacation: boolean;
-    startOfWork: number;
-    endOfWork: number;
-    break1: number;
-    break2: number;
+    startOfWork: string;
+    endOfWork: string;
+    break1: string;
+    break2: string;
 }

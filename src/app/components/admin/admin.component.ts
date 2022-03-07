@@ -9,17 +9,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class AdminComponent implements OnInit {
   display: boolean = false;
 
-  @Output() select: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  selected() {
-    this.select.emit();
-    console.log('hi')
-  }
-
+  
  
 }
