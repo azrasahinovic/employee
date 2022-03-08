@@ -5,12 +5,8 @@
       "first_name": "Isak",
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
-      "dateOfBirth": "2022-02-28T23:00:00.000Z",
-      "sick_leave": true,
-      "startOfWork": "7:30",
-      "endOfWork": "15:00",
-      "break1": "11:00",
-      "break2": "11:30"
+      "dateOfBirth": "2022-02-28T23:00:00.000Z"
+      
     },
     {
       "id": 2,
