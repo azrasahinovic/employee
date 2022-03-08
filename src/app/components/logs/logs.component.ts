@@ -46,7 +46,7 @@ export class LogsComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.employeeService.getEmployee().subscribe(data =>
+    this.employeeService.getEmployee().subscribe( data =>
       this.employees = data
       // .map(e => {
       //   e.sick_leave = true;
@@ -69,18 +69,19 @@ export class LogsComponent implements OnInit {
       )
         console.log(result)
 
-        this.employee = this.employee.map(
-          (e: any) => {
+        this.employees = this.employees.map(
+          (employee: any) => {
+            employee.reports = [];
             result.forEach(date => 
-              this.employee.reports.push(
+              employee.reports.push(
                 {
                   date: this.date,
-                  sick_leave: this.sick_leave,
-                  vacation: this.vacation,
-                  startOfWork: this.startOfWork,
-                  endOfWork: this.endOfWork,
-                  break1: this.break1,
-                  break2: this.break2
+                  sick_leave: this.sick_leave = false,
+                  vacation: this.vacation = false,
+                  startOfWork: this.startOfWork = '7:30',
+                  endOfWork: this.endOfWork = '15:30',
+                  break1: this.break1 = '11:30',
+                  break2: this.break2 = '12:00' 
                 }
           ))
   }
