@@ -71,10 +71,8 @@ import {AccordionModule} from 'primeng/accordion';
    CalendarModule,
    CheckboxModule,
    AccordionModule
-   
-  
-  
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

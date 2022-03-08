@@ -1,24 +1,18 @@
 <div class="row">
-     <app-header></app-header>
+  <app-header></app-header>
 </div>
 
-    <div class="row">
-    <div class="col-md-2">
-        <app-admin *ngIf="role === 'admin'"></app-admin>
-        <app-user *ngIf="role === 'user'"></app-user>
-    </div>
-    <div class=" col">
-        <!-- <app-content></app-content> -->
-        <router-outlet></router-outlet>
-        
-    </div>
+<div class="row">
+  <div class="col-md-2">
+    <app-admin *ngIf="role === 'admin'"></app-admin>
+    <app-user *ngIf="role === 'user'"></app-user>
+  </div>
+  <div class="col">
+    <!-- <app-content></app-content> -->
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <div class="row mt-5">
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 </div>
-
-
-
-
-

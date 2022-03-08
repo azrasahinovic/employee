@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Employee } from 'src/app/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -24,6 +25,7 @@ export class UserManagementhComponent implements OnInit {
   selected!:  Employee;
 
   constructor(private employeeService: EmployeeService,
+    private router: Router
    ) { }
 
   ngOnInit(): void {
@@ -72,5 +74,7 @@ export class UserManagementhComponent implements OnInit {
       }
     )
   }
+
+ 
 
 }
