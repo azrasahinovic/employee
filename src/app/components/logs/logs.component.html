@@ -18,12 +18,12 @@
             <tr>
                 <th></th>
                 <th>Employee name</th>
-                <th>Sick leave</th>
+                <!-- <th>Sick leave</th>
                 <th>Vacation</th>
                 <th>Start of work</th>
                 <th>End of work</th>
                 <th>Break start</th>
-                <th>Break end</th>
+                <th>Break end</th> -->
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-employee let-expanded="expanded">
@@ -32,7 +32,7 @@
                         <button type="button" pButton pRipple [pRowToggler]="employee" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                     </td>
                 <td>{{employee.first_name}} {{employee.last_name}}</td>
-                <td>
+                <!-- <td>
                     <div class="p-field-checkbox">
                         <p-checkbox [(ngModel)]="employee.sick_leave" [binary]="true" inputId="binary"></p-checkbox>
                     </div>
@@ -63,7 +63,7 @@
                     <p-calendar [(ngModel)]="employee.break2" appendTo="body" [timeOnly]="true"
                      inputId="navigators">
                     </p-calendar>
-                </td>
+                </td> -->
             </tr>
         </ng-template>
         <ng-template pTemplate="rowexpansion" let-employee>
@@ -84,13 +84,13 @@
                             </ng-template>
                             <ng-template pTemplate="body" let-report>
                                 <tr>
-                                    <td>{{report.date}}</td>
-                                    <td >{{report.sick_leave}}</td>
-                                    <td>{{report.vacation}}</td>
-                                    <td>{{report.startOfWork}}</td>
-                                    <td>{{report.endOfWork}}</td>
-                                    <td>{{report.break1}}</td>
-                                    <td>{{report.break2}}</td>
+                                    <td>{{report.result}}</td>
+                                    <td >{{employee.report.sick_leave}}</td>
+                                    <td>{{employee.report.vacation}}</td>
+                                    <td>{{employee.report.startOfWork}}</td>
+                                    <td>{{employee.report.endOfWork}}</td>
+                                    <td>{{employee.report.break1}}</td>
+                                    <td>{{employee.report.break2}}</td>
                                   
                                 </tr>
                             </ng-template>
