@@ -5,10 +5,9 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import endOfMonth from 'date-fns/endOfMonth';
-
 import startOfMonth from 'date-fns/startOfMonth';
 import { Employee, Report } from 'src/app/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -51,11 +50,14 @@ export class LogsComponent implements OnInit {
 
   reports!: Report[];
 
-  constructor(private employeeService: EmployeeService) {}
+  selectMonth!: Employee;
+  
+
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.employeeService.getEmployee().subscribe(
-      (data) => (this.employees = data)
+      (data) => this.employees = data
       // .map(e => {
       //   e.sick_leave = true;
       //   e.vacation = false;
@@ -75,20 +77,23 @@ export class LogsComponent implements OnInit {
       end: endOfMonth(this.selectedMonth),
     });
     console.log(result);
+    
 
-    this.employees = this.employees.map((employee: any) => {
+    this.employees = this.employees.map(
+      (employee: any) => {
       employee.reports = [];
-      result.forEach((date) =>
+      result.forEach( date =>
         employee.reports.push({
-          date: this.date,
-          sick_leave: (this.sick_leave = false),
-          vacation: (this.vacation = false),
-          startOfWork: (this.startOfWork = '7:30'),
-          endOfWork: (this.endOfWork = '15:30'),
-          break1: (this.break1 = '11:30'),
-          break2: (this.break2 = '12:00'),
+          date: result,
+          sick_leave: this.vacation = true,
+          vacation: this.vacation = false,
+          startOfWork: this.startOfWork = '7:30',
+          endOfWork: this.endOfWork = '15:30',
+          break1: this.break1 = '11:30',
+          break2: this.break2 = '12:00',
         })
       );
+      return employee;
     });
   }
 }

@@ -99,44 +99,38 @@
                     <th>Break end</th>
                   </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-report>
+                <ng-template pTemplate="body" let-report >
                   <tr>
-                    <td></td>
-                    <!-- <td>{{ employee.report.sick_leave }}</td>
-                    <td>{{ employee.report.vacation }}</td>
-                    <td>{{ employee.report.startOfWork }}</td>
-                    <td>{{ employee.report.endOfWork }}</td>
-                    <td>{{ employee.report.break1 }}</td>
-                    <td>{{ employee.report.break2 }}</td> -->
+                    <td>{{report.date.id | date :'dd-MM' }}</td>
                     <td>
                       <div class="p-field-checkbox">
-                          <p-checkbox [(ngModel)]="employee.report.sick_leave" [binary]="true" inputId="binary"></p-checkbox>
+                          <p-checkbox [(ngModel)]="report.sick_leave" [binary]="true" inputId="binary"></p-checkbox>
                       </div>
                   </td>
                   <td>
                       <div class="p-field-checkbox">
-                          <p-checkbox [(ngModel)]="employee.report.vacation" [binary]="true" inputId="binary"></p-checkbox>
+                          <p-checkbox [(ngModel)]="report.vacation" [binary]="true" inputId="binary"></p-checkbox>
                           
                       </div>
                   </td>
                   <td>
-                      <p-calendar [(ngModel)]="employee.report.startOfWork" appendTo="body" [timeOnly]="true"
+                      <p-calendar [(ngModel)]="report.startOfWork" appendTo="body" [timeOnly]="true"
                        inputId="navigators">
                       </p-calendar>
                   </td>
                   <td>
-                      <p-calendar [(ngModel)]="employee.report.endOfWork" appendTo="body" [timeOnly]="true"
+                      <p-calendar [(ngModel)]="report.endOfWork" appendTo="body" [timeOnly]="true"
                        inputId="navigators">
                       </p-calendar>
                   </td>
                   <td>
-                      <p-calendar [(ngModel)]="employee.report.break1" appendTo="body" [timeOnly]="true"
+                      <p-calendar [(ngModel)]="report.break1" appendTo="body" [timeOnly]="true"
                        inputId="navigators">
                       </p-calendar>
                       
                   </td>
                   <td>
-                      <p-calendar [(ngModel)]="employee.report.break2" appendTo="body" [timeOnly]="true"
+                      <p-calendar [(ngModel)]="report.break2" appendTo="body" [timeOnly]="true"
                        inputId="navigators">
                       </p-calendar>
                   </td>
@@ -152,7 +146,7 @@
   <div class="row mt-4 text-end">
     <div>
       <button pButton type="button" class="p-button-success">
-        <i class="pi pi-pencil" style="margin-right: 5px; font-size: 14px"></i>
+        <i class="pi pi-save" style="margin-right: 5px; font-size: 14px"></i>
         Save report
       </button>
     </div>

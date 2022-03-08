@@ -19,7 +19,6 @@ export class EditUserComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   editEmployee(employee: Employee) {
