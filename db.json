@@ -6,6 +6,7 @@
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
       "dateOfBirth": "2022-02-28T23:00:00.000Z"
+      
     },
     {
       "id": 2,
@@ -13,6 +14,7 @@
       "last_name": "Hadžalić",
       "email": "f.hadzalic@tntsoft.ba",
       "dateOfBirth": "2022-03-29T22:00:00.000Z"
+      
     },
     {
       "id": 3,
@@ -83,6 +85,20 @@
       "email": "a.sahinovic@gmail.com",
       "dateOfBirth": "1996-08-06T22:00:00.000Z",
       "id": 12
+    },
+    {
+      "first_name": "Eldan",
+      "last_name": "Hubić",
+      "email": "e.hubic@tntsoft.ba",
+      "dateOfBirth": "1996-05-15T22:00:00.000Z",
+      "id": 13
+    },
+    {
+      "first_name": "Haris",
+      "last_name": "Selimović",
+      "email": "h.selimovic@tntsoft.ba",
+      "dateOfBirth": "1994-09-22T22:00:00.000Z",
+      "id": 14
     }
   ]
 }

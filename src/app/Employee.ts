@@ -5,6 +5,7 @@ export interface Employee {
     last_name: string;
     email: string;
     dateOfBirth: string;
+    active: boolean;
     reports: Report [];
 }
 

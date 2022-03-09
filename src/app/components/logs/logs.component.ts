@@ -42,6 +42,7 @@ export class LogsComponent implements OnInit {
   employees: Employee[] = [];
   sick_leave: boolean = false;
   vacation: boolean = false;
+  active: boolean = false;
   startOfWork!: string;
   endOfWork!: string;
   break1!: string;
@@ -88,6 +89,7 @@ export class LogsComponent implements OnInit {
           endOfWork: (this.endOfWork = '15:30'),
           break1: (this.break1 = '11:30'),
           break2: (this.break2 = '12:00'),
+          active: this.active = true
         })
       );
       return employee;

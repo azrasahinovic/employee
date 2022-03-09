@@ -99,8 +99,8 @@
                     <th>Break end</th>
                   </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-report >
-                  <tr>
+                <ng-template  pTemplate="body" let-report >
+                  <tr class="active" *ngIf="active">
                     <td>{{report.date | date: "dd/MM"}}</td>
                     <td>
                       <div class="p-field-checkbox">
