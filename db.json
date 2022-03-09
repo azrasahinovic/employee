@@ -6,7 +6,6 @@
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
       "dateOfBirth": "2022-02-28T23:00:00.000Z"
-      
     },
     {
       "id": 2,
@@ -14,7 +13,6 @@
       "last_name": "Hadžalić",
       "email": "f.hadzalic@tntsoft.ba",
       "dateOfBirth": "2022-03-29T22:00:00.000Z"
-      
     },
     {
       "id": 3,
@@ -100,5 +98,8 @@
       "dateOfBirth": "1994-09-22T22:00:00.000Z",
       "id": 14
     }
+  ],
+  "reports": [
+   
   ]
 }

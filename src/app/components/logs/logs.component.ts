@@ -50,12 +50,14 @@ export class LogsComponent implements OnInit {
   date!: Date;
 
   reports!: Report[];
+  report!: Report;
 
   selectMonth!: Employee;
 
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.employeeService.getReport().subscribe()
     this.employeeService.getEmployee().subscribe(
       (data) => (this.employees = data)
       // .map(e => {
@@ -69,6 +71,10 @@ export class LogsComponent implements OnInit {
       //   return e;
       // })
     );
+
+    // this.employeeService.getReport().subscribe(
+    //   reports => this.reports = reports
+    // )
   }
 
   ShowDays() {
@@ -82,6 +88,7 @@ export class LogsComponent implements OnInit {
       employee.reports = [];
       result.forEach((date) =>
         employee.reports.push({
+          employeeID: employee.id,
           date: date,
           sick_leave: (this.vacation = false),
           vacation: (this.vacation = false),
@@ -94,5 +101,20 @@ export class LogsComponent implements OnInit {
       );
       return employee;
     });
+  }
+
+  saveReport(employees: any) {
+    
+    let reports:Report[] = [];
+
+    employees.forEach((emp: Employee) => {
+      reports = reports.concat(emp.reports)
+    })
+    console.log(reports)
+    const report = {
+      month: this.selectedMonth.getMonth(),
+      reports: reports
+    }
+    this.employeeService.saveReport(report).subscribe()
   }
 }

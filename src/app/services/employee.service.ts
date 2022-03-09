@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../Employee';
+import { Employee, Report } from '../Employee';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,6 +14,7 @@ const httpOptions = {
 })
 export class EmployeeService {
   private apiUrl = 'http://localhost:3000/employees';
+  private apiUrlReports = 'http://localhost:3000/reports';
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +35,14 @@ export class EmployeeService {
     const url = `${this.apiUrl}/${employee.id}`;
     return this.http.put<Employee>(url, employee, httpOptions);
   }
-  
 
+  getReport(): Observable<Report[]> {
+    return this.http.get<Report[]>(this.apiUrlReports);
+  }
+
+  saveReport(report: any): Observable<Report[]> {
+    const urlReports = `${this.apiUrlReports}/month/${report.month}`;
+    return this.http.post<any>(urlReports, report, httpOptions);
+  }
   
 }

@@ -1,15 +1,16 @@
 export interface Employee {
-    map: any;
     id: string;
     first_name: string;
     last_name: string;
     email: string;
     dateOfBirth: string;
-    active: boolean;
+   
     reports: Report [];
 }
 
 export interface Report {
+    employeeID: string; 
+    active: boolean;
     date: Date;
     sick_leave: boolean;
     vacation: boolean;
