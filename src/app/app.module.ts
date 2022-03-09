@@ -31,6 +31,7 @@ import { CalendarModule } from 'primeng/calendar';
 import {CheckboxModule} from 'primeng/checkbox';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import {AccordionModule} from 'primeng/accordion';
+import { HeaderUserComponent } from './components/header-user/header-user.component';
 
 
 
@@ -52,6 +53,7 @@ import {AccordionModule} from 'primeng/accordion';
     OverviewComponent,
     AddUserComponent,
     EditUserComponent,
+    HeaderUserComponent,
     
   ],
   imports: [
