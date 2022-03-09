@@ -43,6 +43,7 @@ export class LogsComponent implements OnInit {
   sick_leave: boolean = false;
   vacation: boolean = false;
   active: boolean = false;
+  inactive: boolean = false;
   startOfWork!: string;
   endOfWork!: string;
   break1!: string;
@@ -71,10 +72,6 @@ export class LogsComponent implements OnInit {
       //   return e;
       // })
     );
-
-    // this.employeeService.getReport().subscribe(
-    //   reports => this.reports = reports
-    // )
   }
 
   ShowDays() {
@@ -96,7 +93,8 @@ export class LogsComponent implements OnInit {
           endOfWork: (this.endOfWork = '15:30'),
           break1: (this.break1 = '11:30'),
           break2: (this.break2 = '12:00'),
-          active: this.active = true
+          active: this.active = true,
+         
         })
       );
       return employee;

@@ -41,7 +41,7 @@ export class EmployeeService {
   }
 
   saveReport(report: any): Observable<Report[]> {
-    const urlReports = `${this.apiUrlReports}/month/${report.month}`;
+    const urlReports = `${this.apiUrlReports}`;
     return this.http.post<any>(urlReports, report, httpOptions);
   }
   
