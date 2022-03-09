@@ -12,7 +12,7 @@
     <div class="col-md-4">
       <div class="p-field-checkbox mt-2">
         <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
-        <label for="binray"> Show unactive employees</label>
+        <label for="binray"> Show inactive employees</label>
       </div>
     </div>
   </div>
@@ -101,7 +101,7 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-report >
                   <tr>
-                    <td>{{report.date.id | date :'dd-MM' }}</td>
+                    <td>{{report.date | date: "dd/MM"}}</td>
                     <td>
                       <div class="p-field-checkbox">
                           <p-checkbox [(ngModel)]="report.sick_leave" [binary]="true" inputId="binary"></p-checkbox>
@@ -146,7 +146,7 @@
   <div class="row mt-4 text-end">
     <div>
       <button pButton type="button" class="p-button-success">
-        <i class="pi pi-save" style="margin-right: 5px; font-size: 14px"></i>
+        <i class="pi pi-pencil" style="margin-right: 5px; font-size: 14px"></i>
         Save report
       </button>
     </div>

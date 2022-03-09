@@ -6,8 +6,6 @@
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
       "dateOfBirth": "2022-02-28T23:00:00.000Z"
-     
-      
     },
     {
       "id": 2,
@@ -78,6 +76,13 @@
       "last_name": "Henda",
       "email": "a.henda@tntsoft.ba",
       "dateOfBirth": "1985-04-24T22:00:00.000Z"
+    },
+    {
+      "first_name": "Azra",
+      "last_name": "Šahinović",
+      "email": "a.sahinovic@gmail.com",
+      "dateOfBirth": "1996-08-06T22:00:00.000Z",
+      "id": 12
     }
   ]
 }
