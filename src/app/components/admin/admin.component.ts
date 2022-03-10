@@ -1,6 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -14,7 +12,6 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   
  
 }
