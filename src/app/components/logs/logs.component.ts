@@ -5,7 +5,12 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, OnInit, Output, EventEmitter, Input, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfMonth from 'date-fns/startOfMonth';
@@ -14,6 +19,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import autoTable from 'jspdf-autotable';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-logs',
@@ -60,10 +66,13 @@ export class LogsComponent implements OnInit {
 
   @ViewChild('htmlData') htmlData!: ElementRef;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(
+    private employeeService: EmployeeService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit(): void {
-    this.employeeService.getReport().subscribe()
+    this.employeeService.getReport().subscribe();
     this.employeeService.getEmployee().subscribe(
       (data) => (this.employees = data)
       // .map(e => {
@@ -98,30 +107,47 @@ export class LogsComponent implements OnInit {
           endOfWork: (this.endOfWork = '15:30'),
           break1: (this.break1 = '11:30'),
           break2: (this.break2 = '12:00'),
-          active: this.active = true,
-         
+          active: (this.active = true),
         })
       );
       return employee;
     });
   }
 
-  saveReport(employees: any) {
-    
-    let reports:Report[] = [];
+  showConfirm() {
+    this.messageService.clear();
+    this.messageService.add({
+      key: 'c',
+      sticky: true,
+      severity: 'warn',
+      summary: 'Are you sure?',
+    });
+  }
+  
+  onConfirm(employees: any) {
+    let reports: Report[] = [];
 
     employees.forEach((emp: Employee) => {
-      reports = reports.concat(emp.reports)
-    })
-    console.log(reports)
+      reports = reports.concat(emp.reports);
+    });
+    console.log(reports);
     const report = {
       month: this.selectedMonth.getMonth(),
-      reports: reports
-    }
-    this.employeeService.saveReport(report).subscribe()
+      reports: reports,
+    };
+    this.employeeService.saveReport(report).subscribe();
   }
 
+  onReject() {
+    this.messageService.clear('c');
+  }
+  
   public exportPDF(): void {
+    this.messageService.add({
+      key: 'tc',
+      severity: 'info',
+      detail: 'Downloading...',
+    });
     let DATA: any = document.getElementById('htmlData');
     html2canvas(DATA).then((canvas) => {
       let fileWidth = 208;
@@ -132,8 +158,7 @@ export class LogsComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       PDF.save('employees-report.pdf');
     });
-    console.log('downloading...')
-  }
 
-  
+    console.log('downloading...');
+  }
 }

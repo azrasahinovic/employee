@@ -32,7 +32,8 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import {AccordionModule} from 'primeng/accordion';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
-
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -72,10 +73,11 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
    BrowserAnimationsModule,
    CalendarModule,
    CheckboxModule,
-   AccordionModule
+   AccordionModule,
+   ToastModule
   ],
   
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
