@@ -15,9 +15,15 @@
         <label for="binray"> Show inactive employees</label>
       </div>
     </div>
+    <div class="col text-end">
+      <button pButton type="button" class="p-button-info"  (click)="exportPDF()">
+        <i class="pi pi-save" style="margin-right: 5px; font-size: 14px"></i>
+         Export to PDF
+       </button>
+    </div>
   </div>
   <div class="row mt-4">
-    <p-table
+    <p-table id="htmlData"
       [value]="employees"
       dataKey="id"
       [paginator]="true"
@@ -83,7 +89,7 @@
                 </td> -->
         </tr>
       </ng-template>
-      <ng-template pTemplate="rowexpansion"  let-employee>
+      <ng-template pTemplate="rowexpansion"  let-employee id="htmlData">
         <tr>
           <td colspan="7">
             <div class="p-p-3">
@@ -93,10 +99,12 @@
                     <th>Date</th>
                     <th>Sick leave</th>
                     <th>Vacation</th>
+                    
                     <th>Start of work</th>
                     <th>End of work</th>
                     <th>Break start</th>
                     <th>Break end</th>
+                    <th>Active</th>
                   </tr>
                 </ng-template>
                 <ng-template  pTemplate="body" let-report >
@@ -133,6 +141,12 @@
                       <p-calendar [(ngModel)]="report.break2" appendTo="body" [timeOnly]="true"
                        inputId="navigators">
                       </p-calendar>
+                  </td>
+                  <td>
+                    <div class="p-field-checkbox">
+                      <p-checkbox [(ngModel)]="report.active" [binary]="true" inputId="binary"></p-checkbox>
+                      
+                  </div>
                   </td>
                   </tr>
                 </ng-template>

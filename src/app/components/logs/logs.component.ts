@@ -5,12 +5,15 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ElementRef, ViewChild } from '@angular/core';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfMonth from 'date-fns/startOfMonth';
 import { Employee, Report } from 'src/app/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-logs',
@@ -54,6 +57,8 @@ export class LogsComponent implements OnInit {
   report!: Report;
 
   selectMonth!: Employee;
+
+  @ViewChild('htmlData') htmlData!: ElementRef;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -115,4 +120,22 @@ export class LogsComponent implements OnInit {
     }
     this.employeeService.saveReport(report).subscribe()
   }
+
+  public exportPDF(): void {
+    let DATA: any = document.getElementById('htmlData');
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      PDF.save('angular-demo.pdf');
+    });
+    console.log('downloading...')
+  }
+
+  
+
+  
 }
