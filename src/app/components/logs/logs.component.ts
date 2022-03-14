@@ -20,6 +20,33 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import autoTable from 'jspdf-autotable';
 import { MessageService } from 'primeng/api';
+import * as XLSX from 'xlsx';
+
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { ExcelService } from 'src/app/services/excel.service';
+import { format } from 'date-fns';
+
+export interface IRow {
+  field1: any;
+  field2: any;
+  field3: any;
+  field4: any;
+  field5: any;
+  field6: any;
+  field7: any;
+  field8: any;
+  field9: any;
+  field10: any;
+  field11: any;
+  field12: any;
+  field13: any;
+  field14: any;
+  field15: any;
+}
+
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-logs',
@@ -57,22 +84,32 @@ export class LogsComponent implements OnInit {
   endOfWork!: string;
   break1!: string;
   break2!: string;
-  date!: Date;
+
+  month: Date = new Date();
 
   reports!: Report[];
   report!: Report;
 
   selectMonth!: Employee;
 
-  @ViewChild('htmlData') htmlData!: ElementRef;
+  @ViewChild('htmlData', {static:false}) htmlData!: ElementRef;
+  @ViewChild('pdfTable')
+  pdfTable!: ElementRef;
+
+  fileName = "ExcelSheet.xlsx"
+
+  @ViewChild('userTable') userTable!: ElementRef;
 
   constructor(
     private employeeService: EmployeeService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private excelService: ExcelService
   ) { }
 
   ngOnInit(): void {
-    this.employeeService.getReport().subscribe();
+    this.employeeService.getReport().subscribe(
+      reports => this.reports = reports
+    );
     this.employeeService.getEmployee().subscribe(
       (data) => (this.employees = data)
       // .map(e => {
@@ -141,24 +178,16 @@ export class LogsComponent implements OnInit {
   onReject() {
     this.messageService.clear('c');
   }
-  
-  public exportPDF(): void {
-    this.messageService.add({
-      key: 'tc',
-      severity: 'info',
-      detail: 'Downloading...',
-    });
-    let DATA: any = document.getElementById('htmlData');
-    html2canvas(DATA).then((canvas) => {
-      let fileWidth = 208;
-      let fileHeight = (canvas.height * fileWidth) / canvas.width;
-      const FILEURI = canvas.toDataURL('image/png');
-      let PDF = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
-      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-      PDF.save('employees-report.pdf');
-    });
+
+  public download() {
+//excel
+    let element = document.getElementById("excel-table");
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.writeFile(wb, this.fileName); 
 
     console.log('downloading...');
   }
+
 }
