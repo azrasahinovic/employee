@@ -1,29 +1,43 @@
-
-  <div class="container">
-<p-toast position="top-center" key="tc" ></p-toast>
-
-<p-toast position="bottom-right mb-6" key="c" (onClose)="onReject()" [baseZIndex]="5000">
-  <ng-template let-message pTemplate="message">
+<div class="container">
+  <p-toast position="top-center" key="tc"></p-toast>
+  <p-toast
+    position="bottom-right mb-6"
+    key="c"
+    (onClose)="onReject()"
+    [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
       <div class="p-flex p-flex-column" style="flex: 1">
-          <div class="text-center">
-              <i class="pi pi-exclamation-triangle" style="font-size: 2rem"></i>
-              <h5>{{message.summary}}</h5>
-              <p>{{message.detail}}</p>
+        <div class="text-center">
+          <i class="pi pi-exclamation-triangle" style="font-size: 2rem"></i>
+          <h5>{{ message.summary }}</h5>
+          <p>{{ message.detail }}</p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button
+              style="min-width: 10rem; margin-right: 0.5rem"
+              type="button"
+              pButton
+              (click)="onConfirm(employees)"
+              label="Yes"
+              class="p-button-success"
+            ></button>
           </div>
-          <div class="row">
-              <div class="col-md-6">
-                  <button style="min-width: 10rem;
-                  margin-right: .5rem;" type="button" pButton (click)="onConfirm(employees)" label="Yes" class="p-button-success"></button>
-              </div>
-              <div class="col-md-6">
-                  <button style="min-width: 10rem;
-                  margin-right: .5rem;" type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
-              </div>
+          <div class="col-md-6">
+            <button
+              style="min-width: 10rem; margin-right: 0.5rem"
+              type="button"
+              pButton
+              (click)="onReject()"
+              label="No"
+              class="p-button-secondary"
+            ></button>
           </div>
+        </div>
       </div>
-  </ng-template>
-</p-toast>
-  
+    </ng-template>
+  </p-toast>
+
   <div class="row">
     <div class="col-md-2">
       <p-calendar
@@ -31,9 +45,8 @@
         view="month"
         dateFormat="mm/yy"
         placeholder="Select month"
-        
-        (onSelect)="ShowDays()"
-      ></p-calendar>
+        (onSelect)="ShowDays()">
+      </p-calendar>
     </div>
     <div class="col-md-4">
       <div class="p-field-checkbox mt-2">
@@ -42,36 +55,37 @@
       </div>
     </div>
     <div class="col text-end">
-      <button pButton type="button" class="p-button-danger"(click)="download()">
-        <i class="pi pi-file-excel" style="margin-right: 5px; font-size: 14px"></i>
-         Export Report
-       </button>
+      <button
+        pButton
+        type="button"
+        class="p-button-danger"
+        (click)="download()">
+        <i
+          class="pi pi-file-excel"
+          style="margin-right: 5px; font-size: 14px"
+        ></i>
+        Export Report
+      </button>
     </div>
   </div>
-  <div class="row mt-4" id="excel-table">
-    <p-table #dt
+  <div class="row mt-2" id="excel-table">
+    <p-table
+      #dt
       [value]="employees"
       dataKey="id"
       responsiveLayout="scroll"
-      
-      [globalFilterFields]="['last_name']"
-    >
-    <ng-template pTemplate="caption">
-      <div class="table-header">
-        List of Employees
-        <span class="p-input-icon-left p-ml-auto">
-          <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
-      </span>
-      </div>
-
-    </ng-template>
+      [globalFilterFields]="['first_name']">
       <ng-template pTemplate="header">
         <tr>
           <th></th>
-          <th pSortableColumn="first_name">Employee Name <p-sortIcon field="first_name"></p-sortIcon>
+          <th pSortableColumn="last_name" pFilterColumn="first_name">
+            Employee Name <p-sortIcon field="first_name"></p-sortIcon>
+            <p-columnFilter
+              type="text"
+              field="first_name"
+              display="menu"
+            ></p-columnFilter>
           </th>
-          
           <th>Active</th>
         </tr>
       </ng-template>
@@ -90,16 +104,18 @@
           <td>{{ employee.first_name }} {{ employee.last_name }}</td>
           <td>
             <div class="p-field-checkbox">
-              <p-checkbox [(ngModel)]="employee.active" [binary]="true" ></p-checkbox>                     
-          </div>
-          <div style="display: none;">
-            {{employee.active}}
-          </div>
-          
+              <p-checkbox
+                [(ngModel)]="employee.active"
+                [binary]="true"
+              ></p-checkbox>
+            </div>
+            <div style="display: none">
+              {{ employee.active }}
+            </div>
           </td>
         </tr>
       </ng-template>
-      <ng-template pTemplate="rowexpansion"  let-employee>
+      <ng-template pTemplate="rowexpansion" let-employee>
         <tr>
           <td colspan="7">
             <div class="p-p-3">
@@ -113,87 +129,102 @@
                     <th>End of work</th>
                     <th>Break start</th>
                     <th>Break end</th>
-                  
                   </tr>
                 </ng-template>
-                <ng-template  pTemplate="body" let-report>
+                <ng-template pTemplate="body" let-report>
                   <tr>
-                    <td>{{report.date | date:"dd/M/yyyy"}}</td>
+                    <td>{{ report.date | date: "dd/M/yyyy" }}</td>
                     <td>
                       <div class="p-field-checkbox">
-                          <p-checkbox [(ngModel)]="report.sick_leave" [binary]="true" ></p-checkbox>
+                        <p-checkbox
+                          [(ngModel)]="report.sick_leave"
+                          [binary]="true"
+                        ></p-checkbox>
                       </div>
-                      <div style="display: none;">
-                        {{report.sick_leave}}
+                      <div style="display: none">
+                        {{ report.sick_leave }}
                       </div>
-                      
-                  </td>
-                  <td>
+                    </td>
+                    <td>
                       <div class="p-field-checkbox">
-                          <p-checkbox [(ngModel)]="report.vacation" [binary]="true" ></p-checkbox>  
+                        <p-checkbox
+                          [(ngModel)]="report.vacation"
+                          [binary]="true"
+                        ></p-checkbox>
                       </div>
-                      <div style="display: none;">
-                        {{report.vacation }}
+                      <div style="display: none">
+                        {{ report.vacation }}
                       </div>
-                     
-                  </td>
-                  <td>
-                      <p-calendar [(ngModel)]="report.startOfWork" appendTo="body" [timeOnly]="true">
-                      </p-calendar>
-                      <div style="display: none;">
-                        {{report.startOfWork | date: "hh:mm a"}}
-                      </div>
-                     
-                  </td>
-                  <td>
-                      <p-calendar [(ngModel)]="report.endOfWork" appendTo="body" [timeOnly]="true"
-                       >
-                      </p-calendar>
-                      <div style="display: none;">
-                        {{report.endOfWork | date: "hh:mm a"}}
-                      </div>
-                      
-                  </td>
-                  <td>
-                      <p-calendar [(ngModel)]="report.break1" appendTo="body" [timeOnly]="true"
+                    </td>
+                    <td>
+                      <p-calendar
+                        [(ngModel)]="report.startOfWork"
+                        appendTo="body"
+                        [timeOnly]="true"
                       >
                       </p-calendar>
-                      <div style="display: none;">
-                        {{report.break1  | date: "hh:mm a"}}
+                      <div style="display: none">
+                        {{ report.startOfWork | date: "hh:mm a" }}
                       </div>
-                      
-                  </td>
-                  <td>
-                      <p-calendar [(ngModel)]="report.break2" appendTo="body" [timeOnly]="true"
-                       >
+                    </td>
+                    <td>
+                      <p-calendar
+                        [(ngModel)]="report.endOfWork"
+                        appendTo="body"
+                        [timeOnly]="true"
+                      >
                       </p-calendar>
-                      <div style="display: none;">
-                        {{report.break2  | date: "hh:mm a"}}
+                      <div style="display: none">
+                        {{ report.endOfWork | date: "hh:mm a" }}
                       </div>
-                      
-                  </td>
-                  
+                    </td>
+                    <td>
+                      <p-calendar
+                        [(ngModel)]="report.break1"
+                        appendTo="body"
+                        [timeOnly]="true"
+                      >
+                      </p-calendar>
+                      <div style="display: none">
+                        {{ report.break1 | date: "hh:mm a" }}
+                      </div>
+                    </td>
+                    <td>
+                      <p-calendar
+                        [(ngModel)]="report.break2"
+                        appendTo="body"
+                        [timeOnly]="true"
+                      >
+                      </p-calendar>
+                      <div style="display: none">
+                        {{ report.break2 | date: "hh:mm a" }}
+                      </div>
+                    </td>
                   </tr>
                 </ng-template>
-              </p-table> 
-       </div>
-       </td>
-       </tr>
+              </p-table>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="5">No employees found.</td>
+        </tr>
       </ng-template>
     </p-table>
   </div>
 
- 
-  <div class="row mt-4 text-end">
+  <div class="row mt-2 text-end">
     <div>
-      <button pButton type="button" class="p-button-success" 
-     (click)="showConfirm()"
-      >
+      <button
+        pButton
+        type="button"
+        class="p-button-success"
+        (click)="showConfirm()">
         <i class="pi pi-pencil" style="margin-right: 5px; font-size: 14px"></i>
         Save report
       </button>
     </div>
   </div>
 </div>
-
-

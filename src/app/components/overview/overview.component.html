@@ -1,61 +1,87 @@
 <div class="container">
-    <label class="mb-3 name">Employee name:</label>
+  <label class="mb-3 name">Employee name:</label>
 
-
-    <p-table [value]="reports"  responsiveLayout="scroll">
+  <p-table [value]="reports" responsiveLayout="scroll">
     <ng-template pTemplate="header">
-        <tr>
-           
-            <th>Date</th>
-            <th>Sick leave</th>
-            <th>Vacation</th>
-            <th>Start of work</th>
-            <th>End of work</th>
-            <th>Break start</th>
-            <th>Break end</th>
-            <th>Active</th>
-        </tr>
+      <tr>
+        <th>Date</th>
+        <th>Sick leave</th>
+        <th>Vacation</th>
+        <th>Start of work</th>
+        <th>End of work</th>
+        <th>Break start</th>
+        <th>Break end</th>
+        <th>Active</th>
+      </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-report >
-        <tr>
-            
-            <td></td>
-            <td>
-               <div class="p-field-checkbox">
-                <p-checkbox [(ngModel)]="report.sick_leave" [binary]="true" ></p-checkbox>
-            </div> 
-            </td>
-            <td>
-                <div class="p-field-checkbox">
-                    <p-checkbox [(ngModel)]="report.vacation" [binary]="true" ></p-checkbox>  
-                </div>
-            </td>
-            <td>
-                <p-calendar [(ngModel)]="report.startOfWork" appendTo="body" [timeOnly]="true">
-                </p-calendar>
-            </td>
-            <td>
-                <p-calendar [(ngModel)]="report.endOfWork" appendTo="body" [timeOnly]="true">
-                      </p-calendar>
-            </td>
-            <td>
-                <p-calendar [(ngModel)]="report.break1" appendTo="body" [timeOnly]="true"
-                >
-                </p-calendar>
-            </td>
-            <td>
-                <p-calendar [(ngModel)]="report.break2" appendTo="body" [timeOnly]="true"
-                >
-               </p-calendar>
-            </td>
-            <td>
-                <div class="p-field-checkbox">
-                    <p-checkbox [(ngModel)]="report.active" [binary]="true" ></p-checkbox>                     
-                </div>
-            </td>
-        </tr>
+    <ng-template pTemplate="body" let-report>
+      <tr>
+        <td></td>
+        <td>
+          <div class="p-field-checkbox">
+            <p-checkbox
+              [(ngModel)]="report.sick_leave"
+              [binary]="true"
+            ></p-checkbox>
+          </div>
+        </td>
+        <td>
+          <div class="p-field-checkbox">
+            <p-checkbox
+              [(ngModel)]="report.vacation"
+              [binary]="true"
+            ></p-checkbox>
+          </div>
+        </td>
+        <td>
+          <p-calendar
+            [(ngModel)]="report.startOfWork"
+            appendTo="body"
+            [timeOnly]="true"
+          >
+          </p-calendar>
+        </td>
+        <td>
+          <p-calendar
+            [(ngModel)]="report.endOfWork"
+            appendTo="body"
+            [timeOnly]="true"
+          >
+          </p-calendar>
+        </td>
+        <td>
+          <p-calendar
+            [(ngModel)]="report.break1"
+            appendTo="body"
+            [timeOnly]="true"
+          >
+          </p-calendar>
+        </td>
+        <td>
+          <p-calendar
+            [(ngModel)]="report.break2"
+            appendTo="body"
+            [timeOnly]="true"
+          >
+          </p-calendar>
+        </td>
+        <td>
+          <div class="p-field-checkbox">
+            <p-checkbox
+              [(ngModel)]="report.active"
+              [binary]="true"
+            ></p-checkbox>
+          </div>
+        </td>
+      </tr>
     </ng-template>
-</p-table>
-
+  </p-table>
+  <div class="row mt-2 text-end">
+    <div>
+      <button pButton type="button" class="p-button-info">
+        <i class="pi pi-pencil" style="margin-right: 5px; font-size: 14px"></i>
+        Save
+      </button>
+    </div>
+  </div>
 </div>
-
