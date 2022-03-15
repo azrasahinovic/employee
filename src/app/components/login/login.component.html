@@ -1,4 +1,5 @@
 <body>
+
   <div class="center">
     <input type="checkbox" id="show">
     <label for="show" class="show-btn">CLICK FOR LOGIN</label>
@@ -6,22 +7,24 @@
       <label for="show" class="close-btn fas fa-times" title="close"></label>
       <div class="text">
         Login</div>
-      <form action="#">
+      <form #authForm="ngForm" action="#">
         <div class="data">
           <label>Username</label>
           <input type="text" required [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="data">
           <label>Password</label>
-          <input type="password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+          <input type="password" required minlength="4" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="btn">
           <div class="inner">
           </div>
-          <button type="submit" (click)="login()">login</button>
+          <button  type="submit" (click)="login()" [disabled]="!username || !password">login</button>
         </div>
       </form>
     </div>
   </div>
 </body>
+
+<p-toast position="top-center" ></p-toast>

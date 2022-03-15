@@ -1,0 +1,11 @@
+.header {
+    color: white;
+}
+.navbar-brand {
+    color: white;
+    &:hover {
+        color: red;
+    }
+
+}
+

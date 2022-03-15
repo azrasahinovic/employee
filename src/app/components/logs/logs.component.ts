@@ -8,45 +8,17 @@ import {
 import {
   Component,
   OnInit,
-  ElementRef,
-  ViewChild,
 } from '@angular/core';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfMonth from 'date-fns/startOfMonth';
 import { Employee, Report } from 'src/app/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
-import autoTable from 'jspdf-autotable';
 import { MessageService } from 'primeng/api';
 import * as XLSX from 'xlsx';
 
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
-import { ExcelService } from 'src/app/services/excel.service';
-import { format } from 'date-fns';
 
-export interface IRow {
-  field1: any;
-  field2: any;
-  field3: any;
-  field4: any;
-  field5: any;
-  field6: any;
-  field7: any;
-  field8: any;
-  field9: any;
-  field10: any;
-  field11: any;
-  field12: any;
-  field13: any;
-  field14: any;
-  field15: any;
-}
 
-const htmlToPdfmake = require("html-to-pdfmake");
-(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-logs',
@@ -72,18 +44,13 @@ const htmlToPdfmake = require("html-to-pdfmake");
     ]),
   ],
 })
+
 export class LogsComponent implements OnInit {
   selectedMonth: any;
   employee!: Employee;
   employees: Employee[] = [];
-  sick_leave: boolean = false;
-  vacation: boolean = false;
-  active: boolean = false;
-  inactive: boolean = false;
-  startOfWork!: string;
-  endOfWork!: string;
-  break1!: string;
-  break2!: string;
+  
+  
 
   month: Date = new Date();
 
@@ -92,18 +59,12 @@ export class LogsComponent implements OnInit {
 
   selectMonth!: Employee;
 
-  @ViewChild('htmlData', {static:false}) htmlData!: ElementRef;
-  @ViewChild('pdfTable')
-  pdfTable!: ElementRef;
-
   fileName = "ExcelSheet.xlsx"
-
-  @ViewChild('userTable') userTable!: ElementRef;
 
   constructor(
     private employeeService: EmployeeService,
     private messageService: MessageService,
-    private excelService: ExcelService
+   
   ) { }
 
   ngOnInit(): void {
@@ -130,21 +91,38 @@ export class LogsComponent implements OnInit {
       start: startOfMonth(this.selectedMonth),
       end: endOfMonth(this.selectedMonth),
     });
-    console.log(result);
 
     this.employees = this.employees.map((employee: any) => {
       employee.reports = [];
+      console.log(employee);
+      const startWork = new Date();
+      startWork.setHours(7);
+      startWork.setMinutes(30)
+
+      const endWork = new Date();
+      endWork.setHours(15)
+      endWork.setMinutes(30)
+
+      const startBreak = new Date();
+      startBreak.setHours(11)
+      startBreak.setMinutes(30)
+
+      const endBreak = new Date();
+      endBreak.setHours(12)
+      endBreak.setMinutes(0)
+
+      
       result.forEach((date) =>
         employee.reports.push({
           employeeID: employee.id,
           date: date,
-          sick_leave: (this.vacation = false),
-          vacation: (this.vacation = false),
-          startOfWork: (this.startOfWork = '7:30'),
-          endOfWork: (this.endOfWork = '15:30'),
-          break1: (this.break1 = '11:30'),
-          break2: (this.break2 = '12:00'),
-          active: (this.active = true),
+          sick_leave:  false,
+          vacation: false,
+          startOfWork: startWork,
+          endOfWork: endWork,
+          break1:  startBreak,
+          break2: endBreak,
+          active: true,
         })
       );
       return employee;
@@ -180,13 +158,11 @@ export class LogsComponent implements OnInit {
   }
 
   public download() {
-//excel
     let element = document.getElementById("excel-table");
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
     XLSX.writeFile(wb, this.fileName); 
-
     console.log('downloading...');
   }
 
