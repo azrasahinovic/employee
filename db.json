@@ -5,98 +5,112 @@
       "first_name": "Isak",
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
-      "dateOfBirth": "2022-02-28T23:00:00.000Z"
+      "dateOfBirth": "2022-02-28T23:00:00.000Z",
+      "active": true
     },
     {
       "id": 2,
       "first_name": "Fatima",
       "last_name": "Hadžalić",
       "email": "f.hadzalic@tntsoft.ba",
-      "dateOfBirth": "2022-03-29T22:00:00.000Z"
+      "dateOfBirth": "2022-03-29T22:00:00.000Z",
+      "active": true
     },
     {
       "id": 3,
       "first_name": "Hamza",
       "last_name": "Handanagić",
       "email": "h.handanagic@tntsoft.ba",
-      "dateOfBirth": "7/19/1999"
+      "dateOfBirth": "7/19/1999",
+      "active": true
     },
     {
       "id": 4,
       "first_name": "Suljo",
       "last_name": "Mujkić",
       "email": "s.mujkic@tntsoft.ba",
-      "dateOfBirth": "9/12/1979"
+      "dateOfBirth": "9/12/1979",
+      "active": true
     },
     {
       "id": 5,
       "first_name": "Ibrahim",
       "last_name": "Suljanović",
       "email": "i.suljanovic@tntsoft.ba",
-      "dateOfBirth": "12/8/1985"
+      "dateOfBirth": "12/8/1985",
+      "active": false
     },
     {
       "id": 6,
       "first_name": "Aida",
       "last_name": "Šertović Komić",
       "email": "a.sertovic@tntsoft.ba",
-      "dateOfBirth": "12/5/1997"
+      "dateOfBirth": "12/5/1997",
+      "active": true
     },
     {
       "id": 7,
       "first_name": "Eldin",
       "last_name": "Egrlić",
       "email": "e.egrlic@tntsoft.ba",
-      "dateOfBirth": "12/4/1990"
+      "dateOfBirth": "12/4/1990",
+      "active": false
     },
     {
       "id": 8,
       "first_name": "Tarik",
       "last_name": "Hadžić",
       "email": "t.hadzic@tntsoft.ba",
-      "dateOfBirth": "12/9/1996"
+      "dateOfBirth": "12/9/1996",
+      "active": true
     },
     {
       "id": 9,
       "first_name": "Mirza",
       "last_name": "Murić",
       "email": "m.muric@tntsoft.ba",
-      "dateOfBirth": "12/2/1996"
+      "dateOfBirth": "12/2/1996",
+      "active": false
     },
     {
       "id": 10,
       "first_name": "Tarik",
       "last_name": "Topić",
       "email": "t.topic@tntsoft.ba",
-      "dateOfBirth": "1/12/1990"
+      "dateOfBirth": "1/12/1990",
+      "active": false
     },
     {
       "id": 11,
       "first_name": "Alen",
       "last_name": "Henda",
       "email": "a.henda@tntsoft.ba",
-      "dateOfBirth": "1985-04-24T22:00:00.000Z"
+      "dateOfBirth": "1985-04-24T22:00:00.000Z",
+      "active": false
     },
     {
       "first_name": "Azra",
       "last_name": "Šahinović",
       "email": "a.sahinovic@gmail.com",
       "dateOfBirth": "1996-07-07T22:00:00.000Z",
-      "id": 12
+      "id": 12,
+      "active": true
     },
     {
       "first_name": "Eldan",
       "last_name": "Hubić",
       "email": "e.hubic@tntsoft.ba",
       "dateOfBirth": "2022-03-07T23:00:00.000Z",
-      "id": 13
+      "id": 13,
+      "active": true
     },
     {
       "first_name": "Haris",
       "last_name": "Selimović",
       "email": "h.selimovic@tntsoft.ba",
       "dateOfBirth": "2021-12-14T23:00:00.000Z",
-      "id": 14
+      "id": 14,
+      "active": true
     }
   ],
   "reports": [

@@ -5,11 +5,12 @@ export interface Employee {
     email: string;
     dateOfBirth: string;
     reports: Report [];
+    active: boolean;
 }
 
 export interface Report {
     employeeID: string; 
-    active: boolean;
+    
     date: Date;
     sick_leave: boolean;
     vacation: boolean;

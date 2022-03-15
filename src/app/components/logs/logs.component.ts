@@ -8,6 +8,7 @@ import {
 import {
   Component,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import endOfMonth from 'date-fns/endOfMonth';
@@ -16,6 +17,7 @@ import { Employee, Report } from 'src/app/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { MessageService } from 'primeng/api';
 import * as XLSX from 'xlsx';
+import { Table } from 'primeng/table';
 
 
 
@@ -49,16 +51,12 @@ export class LogsComponent implements OnInit {
   selectedMonth: any;
   employee!: Employee;
   employees: Employee[] = [];
-  
-  
-
   month: Date = new Date();
-
   reports!: Report[];
   report!: Report;
-
   selectMonth!: Employee;
-
+  @ViewChild('dt') table!: Table;
+  activityValues: number[] = [0, 100];
   fileName = "ExcelSheet.xlsx"
 
   constructor(
@@ -121,8 +119,7 @@ export class LogsComponent implements OnInit {
           startOfWork: startWork,
           endOfWork: endWork,
           break1:  startBreak,
-          break2: endBreak,
-          active: true,
+          break2: endBreak
         })
       );
       return employee;
@@ -165,5 +162,7 @@ export class LogsComponent implements OnInit {
     XLSX.writeFile(wb, this.fileName); 
     console.log('downloading...');
   }
+
+  
 
 }
