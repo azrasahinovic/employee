@@ -36,6 +36,7 @@ import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MessagesModule} from 'primeng/messages';
 
 
 
@@ -79,7 +80,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
    CalendarModule,
    CheckboxModule,
    AccordionModule,
-   ToastModule
+   ToastModule,
+   MessagesModule
   ],
   
   providers: [MessageService],

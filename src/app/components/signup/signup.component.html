@@ -8,7 +8,7 @@
                     
                 </div>
                 <form>
-                    <form [formGroup]="signupForm">
+                    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
                         <div class="mt-5 mb-3">
                             <label class="form-label">Full Name</label>
                             <input formControlName="fullname" type="text" class="form-control" id="fullname">
@@ -36,3 +36,6 @@
     </div>
 </div>
 </body>
+
+<p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+<p-toast position="top-center"></p-toast>

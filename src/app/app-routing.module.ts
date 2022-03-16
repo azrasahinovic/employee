@@ -19,7 +19,7 @@ const routes: Routes = [
   children: [
     {path: 'um', component: UserManagementhComponent, canActivate: [AuthGuard], data: ['admin']},
     {path: 'logs', component: LogsComponent,canActivate: [AuthGuard], data: ['admin']},
-    {path: 'overview', component: OverviewComponent, canActivate: [AuthGuard], data: ['user']}
+    {path: 'overview', component: OverviewComponent}
   ]
 },
  

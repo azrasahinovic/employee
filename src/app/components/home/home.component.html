@@ -1,13 +1,13 @@
 <div class="home">
   <div class="row">
   <app-header *ngIf="role === 'admin'"></app-header>
-  <app-header-user *ngIf="role === 'user'"></app-header-user>
+  <app-header-user></app-header-user>
 </div>
 
 <div class="row">
   <div class="col-md-2">
     <app-admin *ngIf="role === 'admin'"></app-admin>
-    <app-user *ngIf="role === 'user'"></app-user>
+    <app-user ></app-user>
   </div>
   <div class="col">
     <!-- <app-content></app-content> -->
