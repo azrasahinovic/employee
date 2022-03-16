@@ -15,6 +15,7 @@ const httpOptions = {
 export class EmployeeService {
   private apiUrl = 'http://localhost:3000/employees';
   private apiUrlReports = 'http://localhost:3000/reports';
+  private apiUrlSignUp = 'http://localhost:3000/signupUsers';
 
   constructor(private http: HttpClient) { }
 
@@ -44,5 +45,7 @@ export class EmployeeService {
     const urlReports = `${this.apiUrlReports}`;
     return this.http.post<any>(urlReports, report, httpOptions);
   }
+
+  
   
 }
