@@ -34,6 +34,8 @@ import {AccordionModule} from 'primeng/accordion';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { SignupComponent } from './components/signup/signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -56,6 +58,8 @@ import { MessageService } from 'primeng/api';
     AddUserComponent,
     EditUserComponent,
     HeaderUserComponent,
+    SignupComponent,
+    DashboardComponent,
     
   ],
   imports: [

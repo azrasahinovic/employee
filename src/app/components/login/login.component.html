@@ -1,30 +1,44 @@
 <body>
-
   <div class="center">
-    <input type="checkbox" id="show">
+    <input type="checkbox" id="show" />
     <label for="show" class="show-btn">CLICK FOR LOGIN</label>
     <div class="container">
       <label for="show" class="close-btn fas fa-times" title="close"></label>
-      <div class="text">
-        Login</div>
+      <div class="text">Login</div>
       <form #authForm="ngForm" action="#">
         <div class="data">
           <label>Username</label>
-          <input type="text" required [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+          <input
+            type="text"
+            required
+            [(ngModel)]="username"
+            [ngModelOptions]="{ standalone: true }"
+          />
         </div>
         <div class="data">
           <label>Password</label>
-          <input type="password" required minlength="4" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+          <input
+            type="password"
+            required
+            minlength="4"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+          />
         </div>
 
         <div class="btn">
-          <div class="inner">
-          </div>
-          <button  type="submit" (click)="login()" [disabled]="!username || !password">login</button>
+          <div class="inner"></div>
+          <button
+            type="submit"
+            (click)="login()"
+            [disabled]="!username || !password"
+          >
+            login
+          </button>
         </div>
       </form>
     </div>
   </div>
 </body>
 
-<p-toast position="top-center" ></p-toast>
+<p-toast position="top-center"></p-toast>
