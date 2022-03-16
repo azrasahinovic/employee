@@ -6,6 +6,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+h1 {
+  font-weight: bold;
+}
+
 .card {
     border: none;
     width: 500px;
@@ -24,7 +28,9 @@ form .btn{
     width: 100%;
  background-color: black;
  color: white;
-
+ letter-spacing: 1px;
+ font-size: 18px;
+  font-weight: 500;
     overflow: hidden;
     border-radius: 50px;
   }

@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  role: string = 'user';
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem('userRole') || '';
   }
 
   logout() {

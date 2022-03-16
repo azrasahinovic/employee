@@ -31,15 +31,11 @@ import { CalendarModule } from 'primeng/calendar';
 import {CheckboxModule} from 'primeng/checkbox';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import {AccordionModule} from 'primeng/accordion';
-import { HeaderUserComponent } from './components/header-user/header-user.component';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MessagesModule} from 'primeng/messages';
-
-
-
 
 @NgModule({
   declarations: [
@@ -58,7 +54,6 @@ import {MessagesModule} from 'primeng/messages';
     OverviewComponent,
     AddUserComponent,
     EditUserComponent,
-    HeaderUserComponent,
     SignupComponent,
     DashboardComponent,
     

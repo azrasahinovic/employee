@@ -2,8 +2,10 @@
     <div class="container">
         <div class="col text-start">
             <a class="navbar-brand" href="home">HOME</a>
-            <a class="navbar-brand" href="home/um">User Management</a>
-            <a class="navbar-brand" href="home/logs">Logs</a>
+            <a *ngIf="role === 'admin'" class="navbar-brand" href="home/um">User Management</a>
+            <a *ngIf="role === 'admin'" class="navbar-brand" href="home/logs">Logs</a>
+            <a class="navbar-brand" href="home/overview">Overview</a>
+            <a class="navbar-brand" href="home/dashboard">Dashboard</a>
         </div>
         <div class="col-md-2 text-end">
             <form class="form-inline">

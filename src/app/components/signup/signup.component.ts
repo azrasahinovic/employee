@@ -32,10 +32,7 @@ export class SignupComponent implements OnInit {
     this.http.post<any>("http://localhost:3000/signupUsers", this.signupForm.value)
     .subscribe(
       res => {
-        this.msgs1 = [
-          {severity:'success', summary:'Success', detail:'Message Content'},
-      ];
-      console.log(this.msgs1)
+        this.messageService.add({severity:'success', summary: 'Success', detail: 'Signup Successfull!'});
         this.signupForm.reset();
         this.router.navigate(['login']);
       },
