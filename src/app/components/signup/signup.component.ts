@@ -34,7 +34,10 @@ export class SignupComponent implements OnInit {
       res => {
         this.messageService.add({severity:'success', summary: 'Success', detail: 'Signup Successfull!'});
         this.signupForm.reset();
-        this.router.navigate(['login']);
+        setTimeout(() => {
+          this.router.navigate(['login']);
+        }, 2000);
+        
       },
       error => {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Something went wrong!'});

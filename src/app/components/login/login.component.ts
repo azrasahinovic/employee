@@ -3,52 +3,51 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {MessageService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 import { Role, User } from 'src/app/User';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  public loginForm !: FormGroup;
+  public loginForm!: FormGroup;
   username: string = '';
   password: string = '';
   role!: Role;
   alert: boolean = false;
 
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     private router: Router,
     private messageService: MessageService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: [''],
-      password: ['']
-    })
+      password: [''],
+    });
   }
 
   // login() {
 
   //   if(this.username && this.password) {
-      
-      
+
   //   if(this.username === 'user' && this.password === 'user') {
   //     const user: User = {
   //       username: this.username,
   //       password: this.password,
   //       role: Role.User
   //     }
-      
+
   //     localStorage.setItem('userRole', 'user');
   //     this.router.navigate(['/home'])
-      
+
   //   }
   //   else if(this.username === 'admin' && this.password === 'admin') {
   //     const user: User = {
@@ -66,52 +65,57 @@ export class LoginComponent implements OnInit {
   //     this.username = '';
   //     this.password = '';
   //   }
-    
-  // }
-  
+
   // }
 
-  login(){
-    this.http.get<any>("http://localhost:3000/signupUsers")
-    .subscribe(
-      res => {
-        const user = res.find((a:any) => {
-          return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+  // }
+
+  login() {
+    this.http.get<any>('http://localhost:3000/signupUsers').subscribe(
+      (res) => {
+        const user = res.find((a: any) => {
+          return (
+            a.username === this.loginForm.value.username &&
+            a.password === this.loginForm.value.password
+          );
         });
-        
-        if(this.username === 'admin' && this.password === 'admin') {
+
+        if (this.username === 'admin' && this.password === 'admin') {
           const user: User = {
             username: this.username,
             password: this.password,
-            role: Role.Admin
-          }
-          
+            role: Role.Admin,
+          };
+
           localStorage.setItem('userRole', 'admin');
-          this.router.navigate(['/home'])
+          this.router.navigate(['/home']);
         }
 
-        if(this.username !== 'admin' && this.password !== 'admin') {
-          this.loginForm.reset();
-          this.router.navigate(['/home'])
-        }
-
-       
-        else {
-          this.messageService.add({severity:'error', summary: 'Error', detail: 'The username or password is incorrect!'});
+        if (user) {
+          if (this.username !== 'admin' && this.password !== 'admin') {
+            this.loginForm.reset();
+            this.router.navigate(['/home']);
+            localStorage.setItem('userRole', 'user');
+          }
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'The username or password is incorrect!',
+          });
           this.username = '';
           this.password = '';
         }
       },
-      error => {
-        this.messageService.add({severity:'error', summary: 'Error', detail: 'Something went wrong!'});
+      (error) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Something went wrong!',
+        });
         this.username = '';
         this.password = '';
       }
-    )
+    );
   }
 }
-
-
-
-
-

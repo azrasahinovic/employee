@@ -19,3 +19,4 @@ export interface Report {
     break1: string;
     break2: string;
 }
+
