@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
     this.http.post<any>("http://localhost:3000/signupUsers", this.signupForm.value)
     .subscribe(
       res => {
-        this.messageService.add({severity:'success', summary: 'Success', detail: 'Signup Successfull!'});
+        this.messageService.add({severity:'success', detail: 'Signup Successfull!'});
         this.signupForm.reset();
         setTimeout(() => {
           this.router.navigate(['login']);

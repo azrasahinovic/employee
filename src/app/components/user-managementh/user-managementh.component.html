@@ -28,12 +28,20 @@
             
         </div>
         <div class="row mt-3">
-            <p-table [value]="employees" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+            <p-table [value]="employees" [paginator]="true" [rows]="5" responsiveLayout="scroll" [globalFilterFields]="['first_name', 'last_name']">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Employee ID</th>
-                        <th>First name</th>
-                        <th>Last name</th>
+                        <th>Employee ID </th>
+                        <th>First name  <p-columnFilter
+                            type="text"
+                            field="first_name"
+                            display="menu"
+                          ></p-columnFilter></th>
+                        <th>Last name  <p-columnFilter
+                            type="text"
+                            field="last_name"
+                            display="menu"
+                          ></p-columnFilter></th>
                         <th>Email</th>
                         <th>Date of birthday</th>
                         <th></th>

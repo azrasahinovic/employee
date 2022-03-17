@@ -9,7 +9,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class AddUserComponent implements OnInit {
   employees!: Employee[];
- 
+  active!: string;
   first_name!: string;
   last_name!: string;
   email!: string;
@@ -27,7 +27,8 @@ export class AddUserComponent implements OnInit {
       first_name: this.first_name,
       last_name: this.last_name,
       email: this.email,
-      dateOfBirth: this.dateOfBirth
+      dateOfBirth: this.dateOfBirth,
+      active: this.active
     }
     this.onAddEmployee.emit(employee);
 
@@ -35,6 +36,7 @@ export class AddUserComponent implements OnInit {
     this.last_name = '';
     this.email = '';
     this.dateOfBirth = '';
+    this.active = '';
   }
 
 }

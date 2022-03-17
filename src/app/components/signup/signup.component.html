@@ -11,21 +11,21 @@
                     <form [formGroup]="signupForm" (ngSubmit)="signUp()">
                         <div class="mt-5 mb-3">
                             <label class="form-label">Full Name</label>
-                            <input formControlName="fullname" type="text" class="form-control" id="fullname">
+                            <input required formControlName="fullname" type="text" class="form-control" id="fullname">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
-                            <input formControlName="email" type="email" class="form-control" id="email">
+                            <input required formControlName="email" type="email" class="form-control" id="email">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>
-                            <input formControlName="username" type="text" class="form-control" id="username">
+                            <input required formControlName="username" type="text" class="form-control" id="username">
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Password</label>
-                            <input formControlName="password" type="password" class="form-control" id="password">
+                            <input required minlength="5" formControlName="password" type="password" class="form-control" id="password">
                         </div>
-                        <button [disabled]="!signupForm.valid" type="submit" class="btn btn-btn-primary mt-5 mb-5">SIGN UP</button>
+                        <button [disabled]="signupForm.invalid" type="submit" class="btn btn-btn-primary mt-5 mb-5">SIGN UP</button>
                         <div>
                             <p class="mb-0 text-center">Back to <a href="login" class="text-black-50 fw-bold">Login</a></p>
                           </div>

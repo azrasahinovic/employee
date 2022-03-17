@@ -100,7 +100,6 @@ export class LoginComponent implements OnInit {
         } else {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
             detail: 'The username or password is incorrect!',
           });
           this.username = '';
