@@ -14,32 +14,32 @@
             [(ngModel)]="username"
             
           />
+          <!-- <span class="text-danger" *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username') " >*Username is required!</span> -->
         </div>
         <div class="data">
           <label>Password</label>
           <input formControlName="password"
             type="password"
             required
-            minlength="4"
+            minlength="6"
             [(ngModel)]="password"
             
           />
+          <!-- <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password') " >*Password is required!</span> -->
+        </div>
+        <div>
+          <a href="signup" class="text-black-50 fw-bold">Forgot your password?</a>
         </div>
 
-        <div class="btn">
-          <div class="inner"></div>
-          <button
-            type="submit"
-         
-            [disabled]="!username || !password"
-          >
-            login
-          </button>
-        </div>
+       
+        
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-btn-primary mt-5 mb-5">LOGIN</button>
+       
 
         <div>
           <p class="mb-0 text-center">Don't have an account? <a href="signup" class="text-black-50 fw-bold">Sign Up</a></p>
         </div>
+        
       </form>
     </div>
   </div>

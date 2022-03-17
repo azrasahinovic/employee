@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/User';
 
 @Component({
@@ -8,11 +9,13 @@ import { User } from 'src/app/User';
 })
 export class DashboardComponent implements OnInit {
   role: string = 'user';
-
-  constructor() { }
+  public signupForm !: FormGroup;
+  
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('userRole') || '';
+    
   }
 
 }

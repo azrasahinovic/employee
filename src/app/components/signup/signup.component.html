@@ -25,7 +25,7 @@
                             <label class="form-label">Password</label>
                             <input formControlName="password" type="password" class="form-control" id="password">
                         </div>
-                        <button type="submit" class="btn btn-btn-primary mt-5 mb-5">SIGN UP</button>
+                        <button [disabled]="!signupForm.valid" type="submit" class="btn btn-btn-primary mt-5 mb-5">SIGN UP</button>
                         <div>
                             <p class="mb-0 text-center">Back to <a href="login" class="text-black-50 fw-bold">Login</a></p>
                           </div>

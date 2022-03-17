@@ -93,6 +93,7 @@ export class LogsComponent implements OnInit {
     this.employees = this.employees.map((employee: any) => {
       employee.reports = [];
       console.log(employee);
+      
       const startWork = new Date();
       startWork.setHours(7);
       startWork.setMinutes(30)
@@ -109,6 +110,7 @@ export class LogsComponent implements OnInit {
       endBreak.setHours(12)
       endBreak.setMinutes(0)
 
+     
       
       result.forEach((date) =>
         employee.reports.push({
@@ -124,6 +126,8 @@ export class LogsComponent implements OnInit {
       );
       return employee;
     });
+
+    
   }
 
   showConfirm() {

@@ -1,21 +1,20 @@
 <div class="home">
   <div class="row">
-  <app-header></app-header>
-</div>
-
-<div class="row">
-  <div class="col-md-2">
-    <app-admin *ngIf="role === 'admin'"></app-admin>
-    <app-user ></app-user>
+    <app-header></app-header>
   </div>
-  <div class="col content">
-    <!-- <app-content></app-content> -->
-    <router-outlet></router-outlet>
+
+  <div class="row">
+    <div class="col-md-2">
+      <app-admin *ngIf="role === 'admin'"></app-admin>
+      <app-user></app-user>
+    </div>
+    <div class="col content">
+      <!-- <app-content></app-content> -->
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <app-footer></app-footer>
-</div>
-
+  <div class="row">
+    <app-footer></app-footer>
+  </div>
 </div>

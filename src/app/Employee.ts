@@ -9,8 +9,7 @@ export interface Employee {
 }
 
 export interface Report {
-    employeeID: string; 
-    
+    employeeID: string;
     date: Date;
     sick_leave: boolean;
     vacation: boolean;
