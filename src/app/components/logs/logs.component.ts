@@ -57,7 +57,8 @@ export class LogsComponent implements OnInit {
   selectMonth!: Employee;
   @ViewChild('dt') table!: Table;
   activityValues: number[] = [0, 100];
-  fileName = "ExcelSheet.xlsx"
+  fileName = "ExcelSheet.xlsx";
+  
 
   constructor(
     private employeeService: EmployeeService,

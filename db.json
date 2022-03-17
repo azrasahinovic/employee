@@ -6,7 +6,7 @@
       "last_name": "Muhamedagić",
       "email": "i.muhamedagic@tntsoft.ba",
       "dateOfBirth": "2022-02-28T23:00:00.000Z",
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "last_name": "Hadžalić",
       "email": "f.hadzalic@tntsoft.ba",
       "dateOfBirth": "2022-03-29T22:00:00.000Z",
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "last_name": "Handanagić",
       "email": "h.handanagic@tntsoft.ba",
       "dateOfBirth": "7/19/1999",
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "last_name": "Mujkić",
       "email": "s.mujkic@tntsoft.ba",
       "dateOfBirth": "9/12/1979",
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "last_name": "Suljanović",
       "email": "i.suljanovic@tntsoft.ba",
       "dateOfBirth": "12/8/1985",
-      "active": false
+      "active": "INACTIVE"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "last_name": "Šertović Komić",
       "email": "a.sertovic@tntsoft.ba",
       "dateOfBirth": "12/5/1997",
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "last_name": "Egrlić",
       "email": "e.egrlic@tntsoft.ba",
       "dateOfBirth": "12/4/1990",
-      "active": false
+      "active": "INACTIVE"
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "last_name": "Hadžić",
       "email": "t.hadzic@tntsoft.ba",
       "dateOfBirth": "12/9/1996",
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "last_name": "Murić",
       "email": "m.muric@tntsoft.ba",
       "dateOfBirth": "12/2/1996",
-      "active": false
+      "active": "INACTIVE"
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "last_name": "Topić",
       "email": "t.topic@tntsoft.ba",
       "dateOfBirth": "1/12/1990",
-      "active": false
+      "active": "INACTIVE"
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "last_name": "Henda",
       "email": "a.henda@tntsoft.ba",
       "dateOfBirth": "1985-04-24T22:00:00.000Z",
-      "active": false
+      "active": "INACTIVE"
     },
     {
       "first_name": "Azra",
@@ -94,7 +94,7 @@
       "email": "a.sahinovic@gmail.com",
       "dateOfBirth": "1996-07-07T22:00:00.000Z",
       "id": 12,
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "first_name": "Eldan",
@@ -102,7 +102,7 @@
       "email": "e.hubic@tntsoft.ba",
       "dateOfBirth": "2022-03-07T23:00:00.000Z",
       "id": 13,
-      "active": true
+      "active": "ACTIVE"
     },
     {
       "first_name": "Haris",
@@ -110,7 +110,7 @@
       "email": "h.selimovic@tntsoft.ba",
       "dateOfBirth": "2021-12-14T23:00:00.000Z",
       "id": 14,
-      "active": true
+      "active": "ACTIVE"
     }
   ],
   "reports": [

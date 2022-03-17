@@ -5,41 +5,46 @@
     <div class="container">
       <label for="show" class="close-btn fas fa-times" title="close"></label>
       <div class="text">Login</div>
-      <form [formGroup]="loginForm"  (ngSubmit)="login()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="data">
           <label>Username</label>
-          <input formControlName="username"
+          <input
+            formControlName="username"
             type="text"
             required
             [(ngModel)]="username"
-            
           />
           <!-- <span class="text-danger" *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username') " >*Username is required!</span> -->
         </div>
         <div class="data">
           <label>Password</label>
-          <input formControlName="password"
+          <input
+            formControlName="password"
             type="password"
             required
-            minlength="6"
+            minlength="5"
             [(ngModel)]="password"
-            
           />
           <!-- <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password') " >*Password is required!</span> -->
         </div>
-        <div>
+        <!-- <div>
           <a href="signup" class="text-black-50 fw-bold">Forgot your password?</a>
-        </div>
+        </div> -->
 
-       
-        
-        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-btn-primary mt-5 mb-5">LOGIN</button>
-       
+        <button
+          [disabled]="!loginForm.valid"
+          type="submit"
+          class="btn btn-btn-primary mt-5 mb-5"
+        >
+          LOGIN
+        </button>
 
         <div>
-          <p class="mb-0 text-center">Don't have an account? <a href="signup" class="text-black-50 fw-bold">Sign Up</a></p>
+          <p class="mb-0 text-center">
+            Don't have an account?
+            <a href="signup" class="text-black-50 fw-bold">Sign Up</a>
+          </p>
         </div>
-        
       </form>
     </div>
   </div>

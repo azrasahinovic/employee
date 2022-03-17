@@ -48,12 +48,12 @@
         (onSelect)="ShowDays()">
       </p-calendar>
     </div>
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <div class="p-field-checkbox mt-2">
         <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
         <label for="binray"> Show inactive employees</label>
       </div>
-    </div>
+    </div> -->
     <div class="col text-end">
       <button
         pButton
@@ -74,7 +74,7 @@
       [value]="employees"
       dataKey="id"
       responsiveLayout="scroll"
-      [globalFilterFields]="['first_name']">
+      [globalFilterFields]="['first_name', 'active']">
       <ng-template pTemplate="header">
         <tr>
           <th></th>
@@ -86,7 +86,13 @@
               display="menu"
             ></p-columnFilter>
           </th>
-          <th>Active</th>
+          <th>Active
+            <p-columnFilter
+            type="text"
+            field="active"
+            display="menu"
+          ></p-columnFilter>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-employee let-expanded="expanded">
@@ -103,13 +109,16 @@
           </td>
           <td>{{ employee.first_name }} {{ employee.last_name }}</td>
           <td>
-            <div class="p-field-checkbox">
+            <!-- <div class="p-field-checkbox">
               <p-checkbox
                 [(ngModel)]="employee.active"
                 [binary]="true"
               ></p-checkbox>
-            </div>
-            <div style="display: none">
+            </div> -->
+            <div  [ngClass]="{
+              'positive' : employee.active === 'ACTIVE',
+              'negative' : employee.active === 'INACTIVE'
+           }">
               {{ employee.active }}
             </div>
           </td>
