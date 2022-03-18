@@ -11,7 +11,8 @@ import { Message, MessageService } from 'primeng/api';
 })
 export class SignupComponent implements OnInit {
   public signupForm !: FormGroup;
-
+  username: string = '';
+  email: string = '';
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -28,7 +29,13 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-    this.http.post<any>("http://localhost:3000/signupUsers", this.signupForm.value)
+
+  //   if( this.username === this.signupForm.value.username) {
+  //     this.messageService.add({severity:'info', detail: 'The username already exist!'});
+  //     this.signupForm.reset();
+  //   }
+  //  else {
+     this.http.post<any>("http://localhost:3000/signupUsers", this.signupForm.value)
     .subscribe(
       res => {
         this.messageService.add({severity:'success', detail: 'Signup Successfull!'});
@@ -42,7 +49,9 @@ export class SignupComponent implements OnInit {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Something went wrong!'});
       }
     )
-
-  }
+    console.log(2);
+   }
+      
+  // }
 
 }

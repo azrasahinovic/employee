@@ -9,7 +9,8 @@ import { User } from 'src/app/User';
 })
 export class HeaderComponent implements OnInit {
   role: string = 'user';
-
+  
+ 
   constructor(private router: Router) { }
 
   ngOnInit(): void {

@@ -54,7 +54,7 @@
                         <td>{{ employee.first_name }}</td>
                         <td>{{ employee.last_name }}</td>
                         <td>{{ employee.email }}</td>
-                        <td>{{ employee.dateOfBirth | date: "dd/MM/yyyy" }}</td>
+                        <td>{{ employee.dateOfBirth | date: "d MMMM yyyy" }}</td>
                         <td>
                             <button pButton type="button" class="p-button-info" (click)="showEditDialog(employee)">
                                 <i class="pi pi-user-edit" style="margin-right: 5px; font-size: 14px"></i>

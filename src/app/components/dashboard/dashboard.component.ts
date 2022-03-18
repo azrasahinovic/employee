@@ -9,6 +9,7 @@ import { User } from 'src/app/User';
 })
 export class DashboardComponent implements OnInit {
   role: string = 'user';
+  
   public signupForm !: FormGroup;
   
   constructor(private formBuilder: FormBuilder) { }

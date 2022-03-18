@@ -16576,6 +16576,13 @@
       "username": "fatima",
       "password": "fatima123",
       "id": 4
+    },
+    {
+      "fullname": "Isak Muhamedagić",
+      "email": "i.muhamedagic@tntsoft.ba",
+      "username": "isak",
+      "password": "isak123",
+      "id": 5
     }
   ]
 }
