@@ -2,6 +2,18 @@
   <label class="mb-3 name">Employee name: {{user.fullname}}</label>
 </div>
 
+<div class="row mb-3">
+  <div class="col-md-2">
+    <p-calendar
+      [(ngModel)]="selectedMonth"
+      view="month"
+      dateFormat="mm/yy"
+      placeholder="Select month"
+      (onSelect)="ShowDays()">
+    </p-calendar>
+  </div>
+</div>
+
   <p-table [value]="reports" responsiveLayout="scroll">
     <ng-template pTemplate="header">
       <tr>
@@ -21,7 +33,7 @@
         <td>
           <div class="p-field-checkbox">
             <p-checkbox
-              [(ngModel)]="report.sick_leave"
+            [(ngModel)]="report.sick_leave"
               [binary]="true"
             ></p-checkbox>
           </div>
@@ -29,14 +41,14 @@
         <td>
           <div class="p-field-checkbox">
             <p-checkbox
-              [(ngModel)]="report.vacation"
+            [(ngModel)]="report.vacation"
               [binary]="true"
             ></p-checkbox>
           </div>
         </td>
         <td>
           <p-calendar
-            [(ngModel)]="report.startOfWork"
+          [(ngModel)]="report.startOfWork"
             appendTo="body"
             [timeOnly]="true"
           >
@@ -44,7 +56,7 @@
         </td>
         <td>
           <p-calendar
-            [(ngModel)]="report.endOfWork"
+          [(ngModel)]="report.endOfWork"
             appendTo="body"
             [timeOnly]="true"
           >
@@ -52,7 +64,7 @@
         </td>
         <td>
           <p-calendar
-            [(ngModel)]="report.break1"
+          [(ngModel)]="report.break1"
             appendTo="body"
             [timeOnly]="true"
           >
@@ -60,7 +72,7 @@
         </td>
         <td>
           <p-calendar
-            [(ngModel)]="report.break2"
+          [(ngModel)]="report.break2"
             appendTo="body"
             [timeOnly]="true"
           >

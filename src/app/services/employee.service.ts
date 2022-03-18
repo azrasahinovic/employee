@@ -37,7 +37,7 @@ export class EmployeeService {
     return this.http.put<Employee>(url, employee, httpOptions);
   }
 
-  getReport(): Observable<Report[]> {
+  getReport(employeeID?: any): Observable<Report[]> {
     return this.http.get<Report[]>(this.apiUrlReports);
   }
 
