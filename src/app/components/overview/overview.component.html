@@ -29,7 +29,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-report>
       <tr>
-        <td></td>
+        <td> {{ report.date | date: "dd/M/yyyy" }}</td>
         <td>
           <div class="p-field-checkbox">
             <p-checkbox

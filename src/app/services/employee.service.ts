@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Employee, Report } from '../Employee';
+import { filter, map, Observable, tap } from 'rxjs';
+import { Employee, MonthReport, Report } from '../Employee';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -37,8 +37,21 @@ export class EmployeeService {
     return this.http.put<Employee>(url, employee, httpOptions);
   }
 
-  getReport(employeeID?: any): Observable<Report[]> {
-    return this.http.get<Report[]>(this.apiUrlReports);
+  getReport(employeeID?: any, selectedMonth?: any): Observable<any> {
+    return this.http.get<any>(this.apiUrlReports + `?month=${selectedMonth}`)
+    .pipe(
+      map(el => {
+        let reports = [];
+        if (el.length > 0) {
+          reports = el[0].reports.filter((report: any) => report.employeeID === employeeID)
+        }
+        return reports;
+      })
+    );
+  }
+
+  getReports(selectedMonth: any): Observable<MonthReport[]> {
+    return this.http.get<MonthReport[]>(this.apiUrlReports + `?month=${selectedMonth}`)
   }
 
   saveReport(report: any): Observable<Report[]> {

@@ -1,11 +1,11 @@
 export interface Employee {
     id: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-    dateOfBirth: string;
-    reports: Report [];
-    active: string;
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    dateOfBirth?: string;
+    reports: Report[];
+    active?: string;
 }
 
 export interface Report {
@@ -13,9 +13,14 @@ export interface Report {
     date: Date;
     sick_leave: boolean;
     vacation: boolean;
-    startOfWork: string;
-    endOfWork: string;
-    break1: string;
-    break2: string;
+    startOfWork: string | Date;
+    endOfWork: string | Date;
+    break1: string | Date;
+    break2: string | Date;
 }
 
+export interface MonthReport {
+    id: number;
+    month: number;
+    reports: Report[];
+}

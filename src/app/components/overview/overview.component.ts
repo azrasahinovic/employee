@@ -9,11 +9,11 @@ import { User } from 'src/app/User';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent implements OnInit {
   employees: Employee[] = [];
-  employee!: Employee;
+  employee!: Employee | undefined;
 
   reports!: Report[];
   report!: Report;
@@ -22,64 +22,39 @@ export class OverviewComponent implements OnInit {
   selectedMonth: any;
   employeeID: any;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.selectedMonth = new Date();
 
-    this.employeeService.getReport().subscribe(
-      reports => this.reports = reports
-    )
-    this.employeeService.getEmployee().subscribe(
-      data => this.employees = data)
+    this.employeeService.getEmployee().subscribe((data) => {
+      this.employee = data.find((a: any) => a.email === this.user.email);
+      this.getReport();
+    });
+  }
 
+  getReport() {
+    if (this.employee) {
+      this.employeeService
+        .getReport(this.employee.id, this.selectedMonth.getMonth())
+        .subscribe((reports) => {
+          this.reports = reports.map((el: Report) => {
+            return {
+              date: new Date(el.date),
+              sick_leave: el.sick_leave,
+              startOfWork: new Date(el.startOfWork),
+              endOfWork: new Date(el.endOfWork),
+              break1: new Date(el.break1),
+              break2: new Date(el.break2)
+
+            };
+          });
+        });
+    }
   }
 
   ShowDays() {
-    const result = eachDayOfInterval({
-      start: startOfMonth(this.selectedMonth),
-      end: endOfMonth(this.selectedMonth),
-    });
-
-    this.employees = this.employees.map((employee: any) => {
-      employee.reports = [];
-      console.log(employee);
-      
-      const startWork = new Date();
-      startWork.setHours(7);
-      startWork.setMinutes(30)
-
-      const endWork = new Date();
-      endWork.setHours(15)
-      endWork.setMinutes(30)
-
-      const startBreak = new Date();
-      startBreak.setHours(11)
-      startBreak.setMinutes(30)
-
-      const endBreak = new Date();
-      endBreak.setHours(12)
-      endBreak.setMinutes(0)
-
-     
-      
-      result.forEach((date) =>
-        employee.reports.push({
-          employeeID: employee.id,
-          date: date,
-          sick_leave:  false,
-          vacation: false,
-          startOfWork: startWork,
-          endOfWork: endWork,
-          break1:  startBreak,
-          break2: endBreak
-        })
-      );
-      return employee;
-    });
-
-    
+    this.getReport();
   }
-
-
 }
