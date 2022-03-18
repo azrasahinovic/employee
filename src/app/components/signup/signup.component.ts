@@ -34,8 +34,9 @@ export class SignupComponent implements OnInit {
   signUp() {
     this.http.get<any>('http://localhost:3000/signupUsers').subscribe((res) => {
       const user: User = res.find((a: any) => {
-        return (a.username === this.signupForm.value.username &&
-        a.email === this.signupForm.value.email);
+        
+        return  (a.username === this.signupForm.value.username || a.email === this.signupForm.value.email)
+                
       });
       if (user) {
         this.messageService.add({

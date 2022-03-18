@@ -4,6 +4,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfMonth from 'date-fns/startOfMonth';
+import { User } from 'src/app/User';
 
 @Component({
   selector: 'app-overview',
@@ -16,10 +17,12 @@ export class OverviewComponent implements OnInit {
 
   reports!: Report[];
   report!: Report;
+  user!: User;
 
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user') || '{}');
     this.employeeService.getReport().subscribe(
       report => this.reports = report
     )
