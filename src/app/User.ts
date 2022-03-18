@@ -3,6 +3,7 @@ export interface User {
     name?: string;
     email?: string;
     username: string;
+    fullname?: string;
     password: string;
     role: string,
     token?: string

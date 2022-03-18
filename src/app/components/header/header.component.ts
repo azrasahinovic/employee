@@ -9,12 +9,13 @@ import { User } from 'src/app/User';
 })
 export class HeaderComponent implements OnInit {
   role: string = 'user';
-  
+  user!: User;
  
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('userRole') || '';
+    this.user = JSON.parse(localStorage.getItem('user') || '{}');
     
   }
 

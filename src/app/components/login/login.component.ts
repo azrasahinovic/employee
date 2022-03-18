@@ -73,30 +73,34 @@ export class LoginComponent implements OnInit {
   login() {
     this.http.get<any>('http://localhost:3000/signupUsers').subscribe(
       (res) => {
-        const user = res.find((a: any) => {
+        const user : User = res.find((a: any) => {
           return (
             a.username === this.loginForm.value.username &&
             a.password === this.loginForm.value.password
           );
         });
+        
 
-        if (this.username === 'admin' && this.password === 'admin') {
-          const user: User = {
-            username: this.username,
-            password: this.password,
-            role: Role.Admin,
-          };
-
-          localStorage.setItem('userRole', 'admin');
-          this.router.navigate(['/home']);
-        }
 
         if (user) {
-          if (this.username !== 'admin' && this.password !== 'admin') {
+          
+        if (this.username === 'admin' && this.password === 'admin') {
+          /*  const user: User = {
+             username: this.username,
+             password: this.password,
+             role: Role.Admin,
+           }; */
+           user.role = Role.Admin;
+ 
+           localStorage.setItem('userRole', 'admin');
+         } else if (this.username !== 'admin' && this.password !== 'admin') {
+            user.role = Role.User;
             this.loginForm.reset();
-            this.router.navigate(['/home']);
             localStorage.setItem('userRole', 'user');
           }
+          localStorage.setItem('user', JSON.stringify(user));
+          this.router.navigate(['/home']);
+
         } else {
           this.messageService.add({
             severity: 'error',
