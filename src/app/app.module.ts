@@ -21,21 +21,20 @@ import { AddComponent } from './components/add/add.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { CalendarModule } from 'primeng/calendar';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
-import {AccordionModule} from 'primeng/accordion';
-import {ToastModule} from 'primeng/toast';
+import { AccordionModule } from 'primeng/accordion';
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {MessagesModule} from 'primeng/messages';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -56,7 +55,7 @@ import {MessagesModule} from 'primeng/messages';
     EditUserComponent,
     SignupComponent,
     DashboardComponent,
-    
+
   ],
   imports: [
     CommonModule,
@@ -67,18 +66,18 @@ import {MessagesModule} from 'primeng/messages';
     InputTextModule,
     ButtonModule,
     PasswordModule,
-   HttpClientModule,
-   TableModule,
-   DialogModule,
-   ConfirmDialogModule,
-   BrowserAnimationsModule,
-   CalendarModule,
-   CheckboxModule,
-   AccordionModule,
-   ToastModule,
-   MessagesModule
+    HttpClientModule,
+    TableModule,
+    DialogModule,
+    ConfirmDialogModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    CheckboxModule,
+    AccordionModule,
+    ToastModule,
+    MessagesModule
   ],
-  
+
   providers: [MessageService],
   bootstrap: [AppComponent]
 })

@@ -1,19 +1,25 @@
 <div class="container">
-   <form #employeeForm="ngForm">
-       <p class="text-start">First Name</p>
-       <input type="text" pInputText placeholder="Enter First Name" name="first_name" [(ngModel)]="first_name"  [ngModelOptions]="{standalone: true}"/>
-       <p class="text-start mt-2">Last Name</p>
-       <input type="text" pInputText placeholder="Enter Last Name" name="last_name" [(ngModel)]="last_name" [ngModelOptions]="{standalone: true}"/>
-       <p class="text-start mt-2">Email</p>
-       <input type="email" pInputText placeholder="Enter email" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"/>
-       <p class="text-start mt-2">Date of Birthday</p>
-       <p-calendar [(ngModel)]="dateOfBirth" [ngModelOptions]="{standalone: true}" placeholder="Date of birth" appendTo="body" [monthNavigator]="true"
-    [yearNavigator]="true" yearRange="1920:2030" inputId="navigators"></p-calendar>
-    <p class="text-start mt-2">Status</p>
-   <input type="text"  pInputText placeholder="ACTIVE or INACTIVE" name="status" [(ngModel)]="active"  [ngModelOptions]="{standalone: true}">
-    <div class="mt-4 text-end">
-        <button [disabled]="!first_name || !last_name || !email || !dateOfBirth || !active" type="submit" pButton icon="pi pi-check" label="Save" (click)="onSubmit()"></button>
-    </div>
-    
+    <form #employeeForm="ngForm">
+        <p class="text-start">First Name</p>
+        <input type="text" pInputText placeholder="Enter First Name" name="first_name" [(ngModel)]="first_name"
+            [ngModelOptions]="{ standalone: true }" />
+        <p class="text-start mt-2">Last Name</p>
+        <input type="text" pInputText placeholder="Enter Last Name" name="last_name" [(ngModel)]="last_name"
+            [ngModelOptions]="{ standalone: true }" />
+        <p class="text-start mt-2">Email</p>
+        <input type="email" pInputText placeholder="Enter email" name="email" [(ngModel)]="email"
+            [ngModelOptions]="{ standalone: true }" />
+        <p class="text-start mt-2">Date of Birthday</p>
+        <p-calendar [(ngModel)]="dateOfBirth" [ngModelOptions]="{ standalone: true }" placeholder="Date of birth"
+            appendTo="body" [monthNavigator]="true" [yearNavigator]="true" yearRange="1920:2030" inputId="navigators">
+        </p-calendar>
+        <p class="text-start mt-2">Status</p>
+        <input type="text" pInputText placeholder="ACTIVE or INACTIVE" name="status" [(ngModel)]="active"
+            [ngModelOptions]="{ standalone: true }" />
+        <div class="mt-4 text-end">
+            <button [disabled]="
+          !first_name || !last_name || !email || !dateOfBirth || !active
+        " type="submit" pButton icon="pi pi-check" label="Save" (click)="onSubmit()"></button>
+        </div>
     </form>
 </div>

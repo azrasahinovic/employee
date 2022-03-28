@@ -22,7 +22,7 @@ export class OverviewComponent implements OnInit {
   selectedMonth: any;
   employeeID: any;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');

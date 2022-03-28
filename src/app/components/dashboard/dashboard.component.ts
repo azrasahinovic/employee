@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   role: string = 'user';
   user!: User;
   public signupForm !: FormGroup;
-  
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

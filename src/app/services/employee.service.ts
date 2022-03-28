@@ -39,14 +39,15 @@ export class EmployeeService {
 
   getReport(employeeID?: any, selectedMonth?: any): Observable<any> {
     return this.http.get<any>(this.apiUrlReports + `?month=${selectedMonth}`)
-    .pipe(
-      map(el => {
-        let reports = [];
-        if (el.length > 0) {
-          reports = el[0].reports.filter((report: any) => report.employeeID === employeeID)
+      .pipe(
+        map(el => {
+          let reports = [];
+          if (el.length > 0) {
+            reports = el[0].reports.filter((report: any) => report.employeeID === employeeID)
+          }
+          return reports;
         }
-        return reports;
-      })
+      )
     );
   }
 
@@ -59,6 +60,6 @@ export class EmployeeService {
     return this.http.post<any>(urlReports, report, httpOptions);
   }
 
-  
-  
+
+
 }

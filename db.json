@@ -111,14 +111,6 @@
       "dateOfBirth": "2021-12-14T23:00:00.000Z",
       "id": 14,
       "active": "ACTIVE"
-    },
-    {
-      "first_name": "Azra",
-      "last_name": "Eminić",
-      "email": "eminic.azra@gmail.com",
-      "dateOfBirth": "1996-08-06T22:00:00.000Z",
-      "active": "INACTIVE",
-      "id": 15
     }
   ],
   "reports": [
@@ -9013,6 +9005,13 @@
       "username": "isak",
       "password": "isak123",
       "id": 5
+    },
+    {
+      "fullname": "Azra Eminić",
+      "email": "eminic.azra@gmail.com",
+      "username": "azra",
+      "password": "azra123",
+      "id": 6
     }
   ]
 }

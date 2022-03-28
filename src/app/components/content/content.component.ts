@@ -10,9 +10,9 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class ContentComponent implements OnInit {
   employees: Employee[] = [];
   employee: any;
-  
- 
-  
+
+
+
 
   constructor(private employeeService: EmployeeService) { }
 

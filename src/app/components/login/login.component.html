@@ -8,37 +8,20 @@
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="data">
           <label>Username</label>
-          <input
-            formControlName="username"
-            type="text"
-            required
-            [(ngModel)]="username"
-          />
+          <input formControlName="username" type="text" required [(ngModel)]="username" />
           <!-- <span class="text-danger" *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username') " >*Username is required!</span> -->
         </div>
         <div class="data">
           <label>Password</label>
-          <input
-            formControlName="password"
-            type="password"
-            required
-            minlength="5"
-            [(ngModel)]="password"
-          />
+          <input formControlName="password" type="password" required minlength="5" [(ngModel)]="password" />
           <!-- <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password') " >*Password is required!</span> -->
         </div>
         <!-- <div>
           <a href="signup" class="text-black-50 fw-bold">Forgot your password?</a>
         </div> -->
-
-        <button
-          [disabled]="!loginForm.valid"
-          type="submit"
-          class="btn btn-btn-primary mt-5 mb-5"
-        >
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-btn-primary mt-5 mb-5">
           LOGIN
         </button>
-
         <div>
           <p class="mb-0 text-center">
             Don't have an account?

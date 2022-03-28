@@ -31,7 +31,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: ['admin'],
       },
-      { path: 'overview', component: OverviewComponent},
+      { path: 'overview', component: OverviewComponent },
       { path: 'dashboard', component: DashboardComponent },
     ],
   },
@@ -41,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

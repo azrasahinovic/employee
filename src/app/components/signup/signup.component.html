@@ -1,41 +1,44 @@
 <body>
     <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="text-center">
-                    <h1>Sign Up</h1>
-                    
-                </div>
-                <form>
-                    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
-                        <div class="mt-5 mb-3">
-                            <label class="form-label">Full Name</label>
-                            <input required formControlName="fullname" type="text" class="form-control" id="fullname">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input required formControlName="email" type="email" class="form-control" id="email">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Username</label>
-                            <input required formControlName="username" type="text" class="form-control" id="username">
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">Password</label>
-                            <input required minlength="5" formControlName="password" type="password" class="form-control" id="password">
-                        </div>
-                        <button [disabled]="signupForm.invalid" type="submit" class="btn btn-btn-primary mt-5 mb-5">SIGN UP</button>
-                        <div>
-                            <p class="mb-0 text-center">Back to <a href="login" class="text-black-50 fw-bold">Login</a></p>
-                          </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="text-center">
+                        <h1>Sign Up</h1>
+                    </div>
+                    <form>
+                        <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                            <div class="mt-5 mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input required formControlName="fullname" type="text" class="form-control"
+                                    id="fullname">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input required formControlName="email" type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <input required formControlName="username" type="text" class="form-control"
+                                    id="username">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Password</label>
+                                <input required minlength="5" formControlName="password" type="password"
+                                    class="form-control" id="password">
+                            </div>
+                            <button [disabled]="signupForm.invalid" type="submit"
+                                class="btn btn-btn-primary mt-5 mb-5">SIGN UP</button>
+                            <div>
+                                <p class="mb-0 text-center">Back to <a href="login"
+                                        class="text-black-50 fw-bold">Login</a></p>
+                            </div>
+                        </form>
                     </form>
-                </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
-
 
 <p-toast position="top-center"></p-toast>

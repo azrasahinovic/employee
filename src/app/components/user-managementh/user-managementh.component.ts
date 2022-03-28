@@ -12,7 +12,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class UserManagementhComponent implements OnInit {
   employees: Employee[] = [];
-  
+
   first_name!: string;
   last_name!: string;
   email!: string;
@@ -22,11 +22,11 @@ export class UserManagementhComponent implements OnInit {
 
   display: boolean = false;
   open: boolean = false;
-  selected!:  Employee;
+  selected!: Employee;
 
   constructor(private employeeService: EmployeeService,
     private router: Router
-   ) { }
+  ) { }
 
   ngOnInit(): void {
     this.employeeService.getEmployee().subscribe(data =>
@@ -59,7 +59,7 @@ export class UserManagementhComponent implements OnInit {
       employee => {
         this.employee = employee;
         console.log(employee)
-      } 
+      }
     )
     this.open = false;
   }
@@ -68,13 +68,10 @@ export class UserManagementhComponent implements OnInit {
     this.employeeService.deleteEmployee(employee).subscribe(
       (employees) => {
         const index = this.employees.findIndex((el) => el.id === employee.id);
-        if(index > -1) {
+        if (index > -1) {
           this.employees.splice(index, 1);
         }
       }
     )
   }
-
- 
-
 }

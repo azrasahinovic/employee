@@ -4,16 +4,15 @@
             <a class="navbar-brand" href="home">HOME</a>
             <a *ngIf="role === 'admin'" class="navbar-brand" href="home/um">User Management</a>
             <a *ngIf="role === 'admin'" class="navbar-brand" href="home/logs">Logs</a>
-            <a  class="navbar-brand" href="home/overview">Overview</a>
+            <a class="navbar-brand" href="home/overview">Overview</a>
             <a class="navbar-brand" href="home/dashboard">Dashboard</a>
         </div>
         <div class="col-md-2 text-end">
-                <a class="navbar-brand" href="/home/dashboard" style="color: red;" >{{role}}</a>
-            </div>
+            <a class="navbar-brand" href="/home/dashboard" style="color: red;">{{role}}</a>
+        </div>
         <div class="col-md-2 text-end">
-            
             <form class="form-inline">
-                <button  class="p-button-danger" pButton type="button" (click)="logout()">Logout</button>
+                <button class="p-button-danger" pButton type="button" (click)="logout()">Logout</button>
             </form>
         </div>
     </div>

@@ -25,6 +25,6 @@ export class EditUserComponent implements OnInit {
     this.edit.emit(employee);
   }
 
-  
+
 
 }
